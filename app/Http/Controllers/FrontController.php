@@ -40,4 +40,19 @@ class FrontController extends Controller
     {
         return view('front.team');
     }
+
+    public function appointment()
+    {
+        return view('front.appointment');
+    }
+
+    public function donation()
+    {
+        return view('front.donation');
+    }
+
+    public function faq()
+    {
+        return view('front.faq');
+    }
 }
