@@ -9,9 +9,11 @@
 </head>
 <body>
 <div class="wrapper">
+    {{--
     <div id="preloader" class="preloader">
         <div id="pre" class="preloader_container"><div class="preloader_disabler btn btn-default">Disable Preloader</div></div>
     </div>
+    --}}
     @include('front.layouts.partials.header')
 
     @yield('content')

@@ -20,6 +20,7 @@
   				<div class="col-md-4">
   					<div class="welcm-ht text-right">
 						<ul class="list-inline">
+                            {{--
 							<li>
 								<div class="dropdown lang-button text-center">
 									<button class="dropbtn">Language</button>
@@ -30,6 +31,7 @@
 									</div>
 								</div>
 							</li>
+                            --}}
 							<li>
 								<a href="#">
 									<div data-toggle="modal" data-target=".bs-example-modal-lg" data-whatever="@mdo">Sign In | Sign Up</div>
@@ -81,7 +83,7 @@
 				            								</div>
 				        						        </form>
 				        				      		</div>
-				        				      	</div>	
+				        				      	</div>
 			        				        </div>
 			        				        <!-- modal footer start here-->
 			        				    </div>
@@ -275,8 +277,10 @@
 			        </div>
 			        <!-- End Top Search -->
 
+
 			        <div class="container ulockd-pad90">
 			            <!-- Start Atribute Navigation -->
+                        {{--
 			            <div class="attr-nav">
 			                <ul>
 			                    <li class="dropdown">
@@ -310,6 +314,7 @@
 			                    <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
 			                </ul>
 			            </div>
+                        --}}
 			            <!-- End Atribute Navigation -->
 
 			            <!-- Start Header Navigation -->
@@ -323,8 +328,9 @@
 			            <!-- Collect the nav links, forms, and other content for toggling -->
 			            <div class="collapse navbar-collapse" id="navbar-menu">
 			                <ul class="nav navbar-nav navbar-left" data-in="fadeIn">
-			                    <li class="dropdown">
+			                    <li class="">
 			                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
+                                    {{--
 			                        <ul class="dropdown-menu">
 										<li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Multipage</a>
@@ -359,9 +365,11 @@
 					                        </ul>
 					                    </li>
 			                        </ul>
+                                    --}}
 			                    </li>
-			                    <li class="dropdown">
-			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Feature</a>
+			                    <li class="">
+			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+                                    {{--
 			                        <ul class="dropdown-menu">
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
@@ -404,7 +412,9 @@
 					                        </ul>
 					                    </li>
 			                        </ul>
+                                    --}}
 			                    </li>
+                                {{--
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
                                     <ul class="dropdown-menu">
@@ -434,13 +444,15 @@
 										</li>
                                     </ul>
                                 </li>
+                                --}}
 			                    <li class="dropdown">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
 			                        <ul class="dropdown-menu">
 										<li><a href="page-appointment.html">Appointment</a></li>
-										<li><a href="page-coming-soon.html">Coming Soon</a></li>
+{{--										<li><a href="page-coming-soon.html">Coming Soon</a></li>--}}
 										<li><a href="page-donation.html">Donation Form</a></li>
-										<li><a href="page-error.html">Error</a></li>
+{{--										<li><a href="page-error.html">Error</a></li>--}}
+                                        {{--
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Event</a>
 					                        <ul class="dropdown-menu">
@@ -449,7 +461,9 @@
 												<li><a href="page-event-single.html">Event Single</a></li>
 					                        </ul>
 					                    </li>
+                                        --}}
 										<li><a href="page-faq.html">Faq</a></li>
+                                        {{--
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Google Calendar</a>
 					                        <ul class="dropdown-menu">
@@ -457,6 +471,9 @@
 												<li><a href="page-fullcalendar2.html">Weekly Event</a></li>
 					                        </ul>
 					                    </li>
+                                        --}}
+                                        <li><a href="page-appointment.html">Gallery</a></li>
+                                        {{--
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
 					                        <ul class="dropdown-menu">
@@ -483,15 +500,19 @@
 					                    </li>
 										<li><a href="page-sitemap.html">Sitemap</a></li>
 										<li><a href="page-under-construction.html">Under Construction</a></li>
+                                        --}}
 			                        </ul>
 			                    </li>
 			                    <li class="dropdown">
-			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+			                        <a href="#" class="">Contact Us</a>
+                                    {{--
 			                        <ul class="dropdown-menu">
 										<li><a href="page-contact.html">Contact Us</a></li>
 										<li><a href="page-contact2.html">Contact Us Two</a></li>
 			                        </ul>
+                                    --}}
 			                    </li>
+                                {{--
 			                    <li class="dropdown megamenu-fw">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Megamenu</a>
 			                        <ul class="dropdown-menu megamenu-content" role="menu">
@@ -529,7 +550,7 @@
 			                                                <li><a href="shortcode-buttons.html">Sitemap</a></li>
 			                                            </ul>
 			                                        </div>
-			                                    </div>    
+			                                    </div>
 			                                    <div class="col-menu col-md-3">
 			                                        <h4 class="title">Video Campaign</h4>
 			                                        <div class="content">
@@ -546,9 +567,11 @@
 			                            </li>
 					                </ul>
 			                    </li>
+                                --}}
 			                </ul>
 			            </div><!-- /.navbar-collapse -->
 			        </div>
+
 
 			        <!-- Start Side Menu -->
 			        <div class="side ulockd-bgthm">
@@ -578,5 +601,5 @@
 			        <!-- End Side Menu -->
 			    </nav>
 			</div>
-		</div>		
+		</div>
 	</header>

@@ -127,7 +127,7 @@
 					  		<li role="presentation" class="active"><a href="#fcauses" aria-controls="fcauses" role="tab" data-toggle="tab">Feature Causes</a></li>
 					  		<li role="presentation"><a href="#rcauses" aria-controls="rcauses" role="tab" data-toggle="tab">Few Success Stories</a></li>
 						</ul>
-	
+
 						<!-- Tab panes -->
 						<div class="tab-content">
 					  		<div role="tabpanel" class="tab-pane active" id="fcauses">
@@ -455,7 +455,7 @@
 	                    <li><a href="#" data-filter=".clothing" class="">Clothing</a></li>
 	                </ul>
 	                <!-- End Masonry Filter -->
-	            
+
 	                <!-- Masonry Grid -->
 	                <div id="grid" class="masonry-gallery grid-four-item clearfix">
 
@@ -790,7 +790,7 @@
 						<h1 class="color-white">Don’t miss out on the Latest News</h1>
 			            <h3>We won’t spam you and we respect your privacy.</h3>
 			            <input placeholder="Your Email">
-			            <button>SUBSCRIBE</button>						
+			            <button>SUBSCRIBE</button>
 					</div>
 				</div>
 			</div>
@@ -985,6 +985,7 @@
 	</section>
 
 	<!-- Our Blog -->
+    {{--
 	<section class="ulockd-blog">
 		<div class="container">
 			<div class="row">
@@ -1062,8 +1063,10 @@
 			</div>
 		</div>
 	</section>
+    --}}
 
 	<!-- Our Partner -->
+    {{--
 	<section class="ulockd-partner">
 		<div class="container">
 			<div class="row">
@@ -1076,4 +1079,5 @@
 			</div>
 		</div>
 	</section>
+    --}}
 @endsection
