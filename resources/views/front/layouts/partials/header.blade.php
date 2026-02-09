@@ -101,7 +101,9 @@
   			<div class="row">
   				<div class="col-xs-12 col-sm-6 col-lg-3 col-lg-3">
   					<div class="ulockd-welcm-hmddl">
-						<a href="index.html" class="ulockd-main-logo"><img src="{{ asset('front/images/header-logo.png') }}" alt=""></a>
+						<a href="{{ route('home') }}" class="ulockd-main-logo">
+                            <img src="{{ asset('front/images/header-logo.png') }}" alt="">
+                        </a>
   					</div>
   				</div>
   				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -329,7 +331,7 @@
 			            <div class="collapse navbar-collapse" id="navbar-menu">
 			                <ul class="nav navbar-nav navbar-left" data-in="fadeIn">
 			                    <li class="">
-			                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
+			                        <a href="{{ route('home') }}" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
                                     {{--
 			                        <ul class="dropdown-menu">
 										<li class="dropdown">
@@ -368,7 +370,7 @@
                                     --}}
 			                    </li>
 			                    <li class="">
-			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+			                        <a href="{{ route('about') }}" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
                                     {{--
 			                        <ul class="dropdown-menu">
 					                    <li class="dropdown">
@@ -448,9 +450,9 @@
 			                    <li class="dropdown">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
 			                        <ul class="dropdown-menu">
-										<li><a href="page-appointment.html">Appointment</a></li>
+										<li><a href="{{ route('appointment') }}">Appointment</a></li>
 {{--										<li><a href="page-coming-soon.html">Coming Soon</a></li>--}}
-										<li><a href="page-donation.html">Donation Form</a></li>
+										<li><a href="{{ route('donation') }}">Donation Form</a></li>
 {{--										<li><a href="page-error.html">Error</a></li>--}}
                                         {{--
 					                    <li class="dropdown">
@@ -462,7 +464,7 @@
 					                        </ul>
 					                    </li>
                                         --}}
-										<li><a href="page-faq.html">Faq</a></li>
+										<li><a href="{{ route('faq') }}">Faq</a></li>
                                         {{--
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Google Calendar</a>
@@ -472,7 +474,7 @@
 					                        </ul>
 					                    </li>
                                         --}}
-                                        <li><a href="page-appointment.html">Gallery</a></li>
+                                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
                                         {{--
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
@@ -504,7 +506,7 @@
 			                        </ul>
 			                    </li>
 			                    <li class="dropdown">
-			                        <a href="#" class="">Contact Us</a>
+			                        <a href="{{ route('contact') }}" class="">Contact Us</a>
                                     {{--
 			                        <ul class="dropdown-menu">
 										<li><a href="page-contact.html">Contact Us</a></li>
