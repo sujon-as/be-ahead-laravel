@@ -15,29 +15,37 @@ class AccessController extends Controller
     	try
         {
         	$data = $request->all();
-		    	if(Auth::attempt(['username' => $data['username'], 'password' => $data['password']])){
+            // Check admin or not
+            $user = User::where('email', $data['email'])->first();
+            if (!$user || $user->role !== 'admin') {
+                $notification = array(
+                    'message' => 'Unauthorized access. Admins only.',
+                    'alert-type' => 'error'
+                );
+                return Redirect()->back()->with($notification);
+            }
 
-		    		$notification = array(
-		                     'message' => 'Successfully Logged In',
-		                     'alert-type' => 'success'
-		                    );
+            if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
 
-		           return redirect('/dashboard')->with($notification);
-		    	} else {
-		    		$notification = array(
-		                     'message' => 'Username or Password Invalid',
-		                     'alert-type' => 'error'
-		                    );
+                $notification = array(
+                         'message' => 'Successfully Logged In',
+                         'alert-type' => 'success'
+                        );
 
-		          return Redirect()->back()->with($notification);
-	    	}
+               return redirect()->route('dashboard')->with($notification);
+            }
+            $notification = array(
+                'message' => 'Username or Password Invalid',
+                'alert-type' => 'error'
+            );
+
+        return Redirect()->back()->with($notification);
 	   } catch(Exception $e){
             // Log the error
             Log::error('Error in Login: ', [
                 'message' => $e->getMessage(),
                 'code' => $e->getCode(),
-                'line' => $e->getLine(),
-                'trace' => $e->getTraceAsString()
+                'line' => $e->getLine()
             ]);
 
             $notification=array(

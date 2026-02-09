@@ -18,7 +18,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/admin/login', [IndexController::class, 'loginPage'])->name('login-admin');
 
-Route::post('admin-login', [AccessController::class, 'adminLogin']);
+Route::post('admin-login', [AccessController::class, 'adminLogin'])->name('admin-login');
 
 Route::get('/logout', [AccessController::class, 'Logout']);
 
@@ -33,7 +33,7 @@ Route::get('/clear-cache', function () {
 
 Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function () {
     // admin dashboard
-    Route::get('/dashboard', [DashboardController::class, 'Dashboard']);
+    Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->name('dashboard');
 });
 
 require __DIR__.'/front.php';
