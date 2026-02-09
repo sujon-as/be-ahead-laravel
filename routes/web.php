@@ -16,8 +16,6 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [IndexController::class, 'loginPage']);
-
 Route::get('/admin/login', [IndexController::class, 'loginPage'])->name('login-admin');
 
 Route::post('admin-login', [AccessController::class, 'adminLogin']);
@@ -37,3 +35,5 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // admin dashboard
     Route::get('/dashboard', [DashboardController::class, 'Dashboard']);
 });
+
+require __DIR__.'/front.php';
