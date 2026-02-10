@@ -4,17 +4,22 @@
   				<div class="col-md-4">
   					<div class="social-linked">
   						<ul class="list-inline">
-  							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-  							<li><a href="#"><i class="fa fa-rss"></i></a></li>
-  							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-  							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-  							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+  							<li><a href="{{ ($settings && $settings->facebook) ? $settings->facebook : '#' }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+  							<li><a href="{{ ($settings && $settings->rss_feed) ? $settings->rss_feed : '#' }}" target="_blank"><i class="fa fa-rss"></i></a></li>
+  							<li><a href="{{ ($settings && $settings->google_plus) ? $settings->google_plus : '#' }}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+  							<li><a href="{{ ($settings && $settings->pinterest) ? $settings->pinterest : '#' }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+  							<li><a href="{{ ($settings && $settings->instagram) ? $settings->instagram : '#' }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
   						</ul>
   					</div>
   				</div>
   				<div class="col-md-4">
   					<div class="welcm-ht text-center">
-	  					<p class="ulockd-welcntxt">Welcome To Our<span class="color-black31"> Be aHand</span> Charity Organizations</p>
+	  					<p class="ulockd-welcntxt">
+                            {{ ($settings && $settings->welcome_msg)
+                                ? $settings->welcome_msg
+                                : "Welcome To Our Be aHand Charity Organizations"
+                            }}
+                        </p>
   					</div>
   				</div>
   				<div class="col-md-4">
@@ -102,7 +107,9 @@
   				<div class="col-xs-12 col-sm-6 col-lg-3 col-lg-3">
   					<div class="ulockd-welcm-hmddl">
 						<a href="{{ route('home') }}" class="ulockd-main-logo">
-                            <img src="{{ asset('front/images/header-logo.png') }}" alt="">
+                            <img src="{{ ($settings && $settings->logo)
+                                ? $settings->logo
+                                : asset('front/images/header-logo.png') }}" alt="">
                         </a>
   					</div>
   				</div>
@@ -111,7 +118,7 @@
 						<div class="ulockd-icon pull-left text-thm2"><span class="flaticon-email-filled-closed-envelope"></span></div>
 						<div class="ulockd-info">
 							<h3>Mail Us</h3>
-							<p class="ulockd-addrss"><strong>Email:</strong> beahand@email.com</p>
+							<p class="ulockd-addrss"><strong>Email:</strong> {{ ($settings && $settings->email) ? $settings->email : 'example@example.com' }}</p>
 						</div>
 					</div>
   				</div>
@@ -120,7 +127,7 @@
 						<div class="ulockd-icon pull-left text-thm2"><span class="flaticon-old-handphone"></span></div>
 						<div class="ulockd-info">
 							<h3>Call Us</h3>
-							<p class="ulockd-addrss">+98 9875 5968 54</p>
+							<p class="ulockd-addrss">{{ ($settings && $settings->phone) ? $settings->phone : '+123456789' }}</p>
 						</div>
 					</div>
   				</div>
@@ -282,8 +289,7 @@
 
 			        <div class="container ulockd-pad90">
 			            <!-- Start Atribute Navigation -->
-                        {{--
-			            <div class="attr-nav">
+			            <div class="attr-nav" style="display: none !important;">
 			                <ul>
 			                    <li class="dropdown">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
@@ -316,7 +322,6 @@
 			                    <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
 			                </ul>
 			            </div>
-                        --}}
 			            <!-- End Atribute Navigation -->
 
 			            <!-- Start Header Navigation -->
@@ -331,7 +336,7 @@
 			            <div class="collapse navbar-collapse" id="navbar-menu">
 			                <ul class="nav navbar-nav navbar-left" data-in="fadeIn">
 			                    <li class="">
-			                        <a href="{{ route('home') }}" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
+			                        <a href="{{ route('home') }}" class="dropdown-toggle {{ Request::is('/') ? 'active' : '' }}" data-toggle="dropdown">Home</a>
                                     {{--
 			                        <ul class="dropdown-menu">
 										<li class="dropdown">
@@ -370,7 +375,7 @@
                                     --}}
 			                    </li>
 			                    <li class="">
-			                        <a href="{{ route('about') }}" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+			                        <a href="{{ route('about') }}" class="dropdown-toggle {{ Request::is('about') ? 'active' : '' }}" data-toggle="dropdown">About Us</a>
                                     {{--
 			                        <ul class="dropdown-menu">
 					                    <li class="dropdown">
@@ -447,14 +452,60 @@
                                     </ul>
                                 </li>
                                 --}}
+                                <li class="">
+                                    <a
+                                        href="{{ route('appointment') }}"
+                                        class="dropdown-toggle {{ Request::is('appointment') ? 'active' : '' }}"
+                                        data-toggle="dropdown"
+                                    >
+                                        Appointment
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a
+                                        href="{{ route('donation') }}"
+                                        class="dropdown-toggle {{ Request::is('donation') ? 'active' : '' }}"
+                                        data-toggle="dropdown"
+                                    >
+                                        Donation Form
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a
+                                        href="{{ route('faq') }}"
+                                        class="dropdown-toggle {{ Request::is('faq') ? 'active' : '' }}"
+                                        data-toggle="dropdown"
+                                    >
+                                        Faq
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a
+                                        href="{{ route('gallery') }}"
+                                        class="dropdown-toggle {{ Request::is('gallery') ? 'active' : '' }}"
+                                        data-toggle="dropdown"
+                                    >
+                                        Gallery
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a
+                                        href="{{ route('contact') }}"
+                                        class="dropdown-toggle {{ Request::is('contact') ? 'active' : '' }}"
+                                        data-toggle="dropdown"
+                                    >
+                                        Contact Us
+                                    </a>
+                                </li>
+                                {{--
 			                    <li class="dropdown">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
 			                        <ul class="dropdown-menu">
 										<li><a href="{{ route('appointment') }}">Appointment</a></li>
-{{--										<li><a href="page-coming-soon.html">Coming Soon</a></li>--}}
+{{--										<li><a href="page-coming-soon.html">Coming Soon</a></li>
 										<li><a href="{{ route('donation') }}">Donation Form</a></li>
-{{--										<li><a href="page-error.html">Error</a></li>--}}
-                                        {{--
+{{--										<li><a href="page-error.html">Error</a></li>
+
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Event</a>
 					                        <ul class="dropdown-menu">
@@ -463,9 +514,7 @@
 												<li><a href="page-event-single.html">Event Single</a></li>
 					                        </ul>
 					                    </li>
-                                        --}}
 										<li><a href="{{ route('faq') }}">Faq</a></li>
-                                        {{--
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Google Calendar</a>
 					                        <ul class="dropdown-menu">
@@ -473,9 +522,7 @@
 												<li><a href="page-fullcalendar2.html">Weekly Event</a></li>
 					                        </ul>
 					                    </li>
-                                        --}}
                                         <li><a href="{{ route('gallery') }}">Gallery</a></li>
-                                        {{--
 					                    <li class="dropdown">
 					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
 					                        <ul class="dropdown-menu">
@@ -502,18 +549,19 @@
 					                    </li>
 										<li><a href="page-sitemap.html">Sitemap</a></li>
 										<li><a href="page-under-construction.html">Under Construction</a></li>
-                                        --}}
+
 			                        </ul>
 			                    </li>
 			                    <li class="dropdown">
 			                        <a href="{{ route('contact') }}" class="">Contact Us</a>
-                                    {{--
+
 			                        <ul class="dropdown-menu">
 										<li><a href="page-contact.html">Contact Us</a></li>
 										<li><a href="page-contact2.html">Contact Us Two</a></li>
 			                        </ul>
-                                    --}}
+
 			                    </li>
+                                --}}
                                 {{--
 			                    <li class="dropdown megamenu-fw">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Megamenu</a>

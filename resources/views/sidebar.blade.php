@@ -3,7 +3,9 @@
     <!-- Brand Logo -->
     <a href="{{URL::to('/dashboard')}}" class="brand-link">
         <img src="{{asset('back/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Earning App</span>
+        <span class="brand-text font-weight-light">
+            {{ ($settings && $settings->site_name) ? $settings->site_name : 'Charity Org' }}
+        </span>
     </a>
 
     <!-- Sidebar -->
@@ -40,7 +42,6 @@
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
-
                         </p>
                     </a>
 
@@ -94,8 +95,8 @@
 
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item {{ Request::is('settings') ? 'menu-open' : '' }}">
+                    <a href="{{ route('settings') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Settings

@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
 use Blade;
 use Session;
+use View;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Schema; 
+use Illuminate\Support\Facades\Schema;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +30,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
+
+        View::composer('*', function ($view) {
+            $settings = Setting::first();
+            $view->with('settings', $settings);
+        });
+
         Blade::directive('toastr', function ($expression){
             return "<script>
                     toastr.{{ Session::get('alert-type') }}($expression)

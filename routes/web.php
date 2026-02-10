@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
@@ -27,13 +28,18 @@ Route::get('/clear-cache', function () {
     Artisan::call('config:clear');
     Artisan::call('route:clear');
     Artisan::call('view:clear');
+    Artisan::call('optimize');
 
-    return 'All caches (config, route, view, application) have been cleared!';
+    return 'All caches (config, route, view, optimize) have been cleared!';
 });
 
 Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function () {
     // admin dashboard
     Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->name('dashboard');
+
+    // Settings
+    Route::get('/settings', [SettingController::class, 'settings'])->name('settings');
+    Route::post('settings-app', [SettingController::class, 'settingApp'])->name('settings-app');
 });
 
 require __DIR__.'/front.php';
