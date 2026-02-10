@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Slider;
+
+use App\Http\Requests\FeatureRequest;
+use App\Models\Feature;
 use Exception;
 use Illuminate\Http\Request;
-use App\Http\Requests\SliderRequest;
-use DataTables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use DataTables;
 
-class SliderController extends Controller
+class FeatureController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth_check');
@@ -20,7 +20,7 @@ class SliderController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $sliders = Slider::latest();
+            $sliders = Feature::latest();
 
             return DataTables::of($sliders)
                 ->addIndexColumn()
@@ -33,18 +33,9 @@ class SliderController extends Controller
                     return $row->title_2 ?? 'N/A';
                 })
 
-                ->addColumn('title_3', function ($row) {
-                    return $row->title_3 ?? 'N/A';
-                })
-
                 ->addColumn('bg_img', function($row){
                     $url = asset($row->bg_img);
                     return '<img src="' . $url . '" alt="BG Image" loading="lazy" style="height:60px;">';
-                })
-
-                ->addColumn('marker_img', function($row){
-                    $url = asset($row->marker_img);
-                    return '<img src="' . $url . '" alt="Marker Image" loading="lazy" style="height:60px;">';
                 })
 
                 ->addColumn('status', function($row){
@@ -56,7 +47,7 @@ class SliderController extends Controller
                     $btn = "";
                     $btn .= '&nbsp;';
 
-                    $btn .= ' <a href="'.route('sliders.show',$row->id).'" class="btn btn-primary btn-sm action-button edit-data" data-id="'.$row->id.'"><i class="fa fa-edit"></i></a>';
+                    $btn .= ' <a href="'.route('features.show',$row->id).'" class="btn btn-primary btn-sm action-button edit-data" data-id="'.$row->id.'"><i class="fa fa-edit"></i></a>';
 
                     $btn .= '&nbsp;';
 
@@ -78,13 +69,13 @@ class SliderController extends Controller
                 ->make(true);
         }
 
-        return view('admin.sliders.index');
+        return view('admin.features.index');
     }
     public function create()
     {
-        return view('admin.sliders.create');
+        return view('admin.features.create');
     }
-    public function store(SliderRequest $request)
+    public function store(FeatureRequest $request)
     {
         DB::beginTransaction();
         try
@@ -95,17 +86,10 @@ class SliderController extends Controller
                 $bgFilePath = storeFile($request->file('bg_img'), 'bg_images', 'bgImage_');
             }
 
-            $markerFilePath = null;
-            if ($request->hasFile('marker_img')) {
-                $markerFilePath = storeFile($request->file('marker_img'), 'marker_images', 'markerImage_');
-            }
-
-            $data = new Slider();
+            $data = new Feature();
             $data->title_1 = $request->title_1;
             $data->title_2 = $request->title_2;
-            $data->title_3 = $request->title_3;
             $data->bg_img = $bgFilePath;
-            $data->marker_img = $markerFilePath;
             $data->status = $request->status;
             $data->save();
 
@@ -116,7 +100,7 @@ class SliderController extends Controller
                 'alert-type' => "success",
             );
 
-            return redirect()->route('sliders.index')->with($notification);
+            return redirect()->route('features.index')->with($notification);
 
         } catch(Exception $e) {
             DB::rollback();
@@ -133,53 +117,46 @@ class SliderController extends Controller
                 'alert-type' => 'error'
             );
 
-            return redirect()->route('sliders.index')->with($notification);
+            return redirect()->route('features.index')->with($notification);
         }
     }
-    public function show(Slider $slider)
+    public function show(Feature $feature)
     {
-        return view('admin.sliders.edit', compact('slider'));
+        return view('admin.features.edit', compact('feature'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Feature  $slider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(Feature $feature)
     {
         //
     }
-    public function update(SliderRequest $request, Slider $slider)
+    public function update(FeatureRequest $request, Feature $feature)
     {
         try
         {
             // Handle file upload
-            $bgFilePath = $slider->bg_img;
+            $bgFilePath = $feature->bg_img;
             if ($request->hasFile('bg_img')) {
-                $bgFilePath = updateFile($request->file('bg_img'), 'bg_images', 'bgImage_', $slider->bg_img);
+                $bgFilePath = updateFile($request->file('bg_img'), 'bg_images', 'bgImage_', $feature->bg_img);
             }
 
-            $markerFilePath = $slider->marker_img;
-            if ($request->hasFile('marker_img')) {
-                $markerFilePath = updateFile($request->file('marker_img'), 'marker_images', 'markerImage_', $slider->marker_img);
-            }
-
-            $slider->title_1 = $request->title_1;
-            $slider->title_2 = $request->title_2;
-            $slider->title_3 = $request->title_3;
-            $slider->bg_img = $bgFilePath;
-            $slider->marker_img = $markerFilePath;
-            $slider->status = $request->status;
-            $slider->update();
+            $feature->title_1 = $request->title_1;
+            $feature->title_2 = $request->title_2;
+            $feature->bg_img = $bgFilePath;
+            $feature->status = $request->status;
+            $feature->update();
 
             $notification=array(
                 'message' => "Successfully data has been updated",
                 'alert-type' => "success",
             );
 
-            return redirect()->route('sliders.index')->with($notification);
+            return redirect()->route('features.index')->with($notification);
 
         } catch(Exception $e) {
             // Log the error
@@ -194,16 +171,16 @@ class SliderController extends Controller
                 'alert-type' => 'error'
             );
 
-            return redirect()->route('sliders.index')->with($notification);
+            return redirect()->route('features.index')->with($notification);
         }
     }
-    public function destroy(Slider $slider)
+    public function destroy(Feature $feature)
     {
         try
         {
-            deleteOldFile($slider->bg_img);
-            deleteOldFile($slider->marker_img);
-            $slider->delete();
+            deleteOldFile($feature->bg_img);
+            deleteOldFile($feature->marker_img);
+            $feature->delete();
 
             return response()->json([
                 'status'=>true,
@@ -223,12 +200,12 @@ class SliderController extends Controller
             ]);
         }
     }
-    public function sliderStatusUpdate(SliderRequest $request)
+    public function featureStatusUpdate(FeatureRequest $request)
     {
         DB::beginTransaction();
         try
         {
-            $data = Slider::findorfail($request->id);
+            $data = Feature::findorfail($request->id);
             $data->status = $request->status;
             $data->update();
 
@@ -236,7 +213,7 @@ class SliderController extends Controller
 
             return response()->json([
                 'status' => true,
-                'message' => "Slider status updated successfully."
+                'message' => "Feature status updated successfully."
             ]);
         } catch(Exception $e) {
             DB::rollBack();

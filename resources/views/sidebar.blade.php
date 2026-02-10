@@ -51,7 +51,7 @@
                     <a href="{{ route('sliders.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Slider
+                            Sliders
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -66,6 +66,33 @@
                             <a href="{{ route('sliders.index') }}" class="nav-link {{ request()->routeIs('sliders.index') ? 'active_nav_menu' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Slider</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item {{ Request::is('features*') ? 'menu-open' : '' }}">
+                    <a href="{{ route('features.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Features
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('features.create') }}"
+                               class="nav-link {{ request()->routeIs('features.create') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Feature</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('features.index') }}"
+                               class="nav-link {{ request()->routeIs('features.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Feature</p>
                             </a>
                         </li>
 

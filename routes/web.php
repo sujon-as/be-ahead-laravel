@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Artisan;
@@ -45,6 +46,10 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // Sliders
     Route::resource('sliders', SliderController::class);
     Route::post('slider-status-update', [SliderController::class, 'sliderStatusUpdate'])->name('slider-status-update');
+
+    // Features
+    Route::resource('features', FeatureController::class);
+    Route::post('feature-status-update', [FeatureController::class, 'featureStatusUpdate'])->name('feature-status-update');
 });
 
 require __DIR__.'/front.php';

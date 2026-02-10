@@ -9,53 +9,11 @@
     @endif
 	<!-- Home Design end -->
 
-	<!-- Our Features -->
-	<section class="service1 ulockd-bgthm">
-		<div class="container-fluid text-center">
-			<div class="row">
-				<div class="col-sm-6 col-md-3 ulockd-pad395">
-					<figure class="fclmn-one">
-						<div class="caption">
-							<div class="fc-icon"><span class="flaticon-raise-your-hand-to-ask"></span></div>
-							<h5>Be a Hand</h5>
-							<h3>As a Volunteers</h3>
-							<button type="submit" class="btn btn-default ulockd-btn-styledark">Join Us</button>
-						</div>
-					</figure>
-				</div>
-				<div class="col-sm-6 col-md-3 ulockd-pad395">
-					<figure class="fclmn-one two">
-						<div class="caption">
-							<div class="fc-icon"><span class="flaticon-make-a-donation"></span></div>
-							<h5>Be a Hand</h5>
-							<h3>As a Donor</h3>
-							<button type="submit" class="btn btn-default ulockd-btn-styledark" data-toggle="modal" data-target=".bs-example-modal-default" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button>
-						</div>
-					</figure>
-				</div>
-				<div class="col-sm-6 col-md-3 ulockd-pad395">
-					<figure class="fclmn-one three">
-						<div class="caption">
-							<div class="fc-icon"><span class="flaticon-donation"></span></div>
-							<h5>Be a Hand</h5>
-							<h3>As a Fundraiser</h3>
-							<button type="submit" class="btn btn-default ulockd-btn-styledark">Read More</button>
-						</div>
-					</figure>
-				</div>
-				<div class="col-sm-6 col-md-3 ulockd-pad395">
-					<figure class="fclmn-one four">
-						<div class="caption">
-							<div class="fc-icon"><span class="flaticon-dove-of-peace"></span></div>
-							<h5>Be a Hand</h5>
-							<h3>As a Sponsor</h3>
-							<button type="submit" class="btn btn-default ulockd-btn-styledark">Read More</button>
-						</div>
-					</figure>
-				</div>
-			</div>
-		</div>
-	</section>
+	<!-- Our Features start -->
+    @if(count($features) > 0)
+        @include('front.partials.home-feature')
+    @endif
+	<!-- Our Features end -->
 
 	<!-- Our Causes -->
 	<section class="ulockd-causes">

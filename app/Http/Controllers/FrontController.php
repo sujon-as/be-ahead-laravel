@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feature;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,10 @@ class FrontController extends Controller
     public function index()
     {
         $sliders = Slider::where('status', 'Active')->get();
+        $features = Feature::where('status', 'Active')->get();
         return view('front.index', compact(
-            'sliders'
+            'sliders',
+             'features',
         ));
     }
 
