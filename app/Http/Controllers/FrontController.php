@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
     public function index()
     {
-        return view('front.index');
+        $sliders = Slider::where('status', 'Active')->get();
+        return view('front.index', compact(
+            'sliders'
+        ));
     }
 
     public function about()

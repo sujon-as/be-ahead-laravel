@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
@@ -40,6 +41,10 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // Settings
     Route::get('/settings', [SettingController::class, 'settings'])->name('settings');
     Route::post('settings-app', [SettingController::class, 'settingApp'])->name('settings-app');
+
+    // Sliders
+    Route::resource('sliders', SliderController::class);
+    Route::post('slider-status-update', [SliderController::class, 'sliderStatusUpdate'])->name('slider-status-update');
 });
 
 require __DIR__.'/front.php';

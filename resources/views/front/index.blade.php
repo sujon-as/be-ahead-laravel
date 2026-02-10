@@ -3,62 +3,11 @@
 @section('title', 'Home')
 
 @section('content')
-	<!-- Home Design -->
-	<div class="ulockd-home-slider">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 ulockd-pmz">
-					<div class="cd-hero">
-						<ul class="cd-hero-slider autoplay">
-							<li class="selected">
-								<div class="cd-full-width">
-									<h1>Build a Beautiful World.</h1>
-									<h2>Charity organizations.</h2>
-									<h4>Your Help Turn Into Smiles.</h4>
-									<a href="#0" class="cd-btn btn btn-default ulockd-btn-thm2">Our Event</a>
-									<a href="#0" class="cd-btn btn btn-default ulockd-btn-styledark">Get Quote</a>
-								</div> <!-- .cd-full-width -->
-							</li>
-
-							<li>
-								<div class="cd-full-width">
-									<h1>We Are <span class="text-thm2"> Be aHand</span></h1>
-									<h2>We Are a Helping Hand.</h2>
-									<h4>We Build a Fundraising For Help Less People</h4>
-									<a href="#0" class="cd-btn btn btn-default ulockd-btn-thm2">Our Mission</a>
-									<a href="#" class="cd-btn btn btn-default ulockd-btn-thm2">Learn More</a>
-								</div> <!-- .cd-half-width -->
-							</li>
-
-							<li>
-
-								<div class="cd-full-width">
-									<h2>Give a small! Change a lot.</h2>
-									<h3>Family Is The Orphan's Happiness</h3>
-									<h4>Give a helping hand to those who need it!</h4>
-									<a href="#0" class="cd-btn btn btn-default ulockd-btn-thm2">About Us</a>
-									<a href="#0" class="cd-btn btn btn-default ulockd-btn-thm2">Learn More</a>
-								</div> <!-- .cd-full-width -->
-
-							</li>
-						</ul> <!-- .cd-hero-slider -->
-
-						<div class="cd-slider-nav">
-							<nav>
-								<span class="cd-marker item-1"></span>
-
-								<ul>
-									<li class="selected"><a href="#0"></a></li>
-									<li><a href="#0"></a></li>
-									<li><a href="#0"></a></li>
-								</ul>
-							</nav>
-						</div> <!-- .cd-slider-nav -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- Home Design start -->
+    @if(count($sliders) > 0)
+        @include('front.partials.home-slider')
+    @endif
+	<!-- Home Design end -->
 
 	<!-- Our Features -->
 	<section class="service1 ulockd-bgthm">

@@ -21,6 +21,7 @@
 						<li><a href="{{ ($settings && $settings->instagram) ? $settings->instagram : '#' }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
 					</ul>
 				</div>
+
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					<div class="ulockd-footer-lnews">
 						<h3 class="text-uppercase">Latest News</h3>
@@ -64,6 +65,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 ulockd-pad395">
 					<div class="ulockd-footer-qlink">
 						<h3 class="text-uppercase">TWITTER</h3>
@@ -124,6 +126,7 @@
 							</li>
 						</ul>
 					</div>
+                    <!--
     				<div class="ulockd-footer-newsletter">
     					<h4 class="title text-uppercase">News Letter</h4>
 		                <form class="ulockd-mailchimp">
@@ -135,6 +138,7 @@
 		                    </div>
 		                </form>
     				</div>
+                    -->
 				</div>
 			</div>
 		</div>
