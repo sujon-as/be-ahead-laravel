@@ -10,13 +10,13 @@ $(document).ready(function(){
     //Initialize Select2 Elements
     $('.select2bs4').select2({
       theme: 'bootstrap4'
-    }) 
-  
+    })
+
 
    $('.dropify').dropify();
 
 
-   $('#description').summernote(
+   $('.description').summernote(
       {
         height: 300,
         focus: false

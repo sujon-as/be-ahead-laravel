@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CauseTitle;
 use App\Models\Feature;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -12,9 +13,11 @@ class FrontController extends Controller
     {
         $sliders = Slider::where('status', 'Active')->get();
         $features = Feature::where('status', 'Active')->get();
+        $causeTitles = CauseTitle::get();
         return view('front.index', compact(
             'sliders',
              'features',
+             'causeTitles',
         ));
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CauseController;
+use App\Http\Controllers\CauseTitleController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
@@ -50,6 +52,10 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // Features
     Route::resource('features', FeatureController::class);
     Route::post('feature-status-update', [FeatureController::class, 'featureStatusUpdate'])->name('feature-status-update');
+
+    // Causes
+    Route::resource('front-causes', CauseController::class);
+    Route::resource('cause-titles', CauseTitleController::class);
 });
 
 require __DIR__.'/front.php';
