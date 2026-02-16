@@ -36,7 +36,7 @@
                                 <label for="site_name">Site name <span class="required">*</span></label>
                                 <input type="text" name="site_name" class="form-control" id="site_name"
                                     placeholder="Site name"
-                                    value="{{old('site_name', ($setting && $setting->site_name) ? $setting->company_name : "")}}">
+                                    value="{{old('site_name', ($setting && $setting->site_name) ? $setting->site_name : "")}}">
                                 @error('site_name')
                                     <span class="alert alert-danger">{{ $message }}</span>
                                 @enderror
@@ -208,9 +208,10 @@
                                     name="fav_icon"
                                     type="file"
                                     id="fav_icon"
-                                    accept="image/*"
+                                    accept="image/*,.ico"
                                     class="dropify"
                                     data-height="150"
+                                    data-allowed-file-extensions="ico png jpg jpeg svg"
                                     data-default-file="{{ URL::to($setting ? $setting->fav_icon : '') }}"
                                 />
                                 @error('fav_icon')
