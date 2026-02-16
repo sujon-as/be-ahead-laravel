@@ -171,6 +171,33 @@
                     </a>
                 </li>
 
+                <li class="nav-item {{ (Request::is('galleries*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Gallery
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('galleries.index') }}"
+                               class="nav-link {{ request()->routeIs('galleries.*') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Content</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('front-recent-causes.index') }}"
+                               class="nav-link {{ request()->routeIs('front-recent-causes.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Category</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="nav-item {{ Request::is('settings') ? 'menu-open' : '' }}">
                     <a href="{{ route('settings') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>

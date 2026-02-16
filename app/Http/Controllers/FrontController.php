@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Models\Cause;
 use App\Models\CauseTitle;
 use App\Models\Feature;
+use App\Models\Gallery;
 use App\Models\RecentCause;
 use App\Models\RecentCauseTitle;
 use App\Models\Slider;
@@ -24,6 +25,7 @@ class FrontController extends Controller
         $recentCauses = RecentCause::get();
         $whyChooseUs = WhyChooseUs::first();
         $aboutUs = AboutUs::first();
+        $gallery = Gallery::first();
 
         return view('front.index', compact(
             'sliders',
@@ -34,6 +36,7 @@ class FrontController extends Controller
              'recentCauses',
              'whyChooseUs',
              'aboutUs',
+             'gallery',
         ));
     }
 

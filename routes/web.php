@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RecentCauseController;
 use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
@@ -70,6 +71,10 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // About Us
     Route::resource('about-us', AboutUsController::class);
+
+    // Gallery
+    Route::resource('galleries', GalleryController::class);
+
 });
 
 require __DIR__.'/front.php';
