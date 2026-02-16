@@ -12,7 +12,7 @@
             @foreach($recentCauses as $key => $recentCause)
                 <div class="col-sm-6 col-md-6 col-lg-3 fservice-box">
                     <div class="db-thumb">
-                        <img class="img-responsive img-whp" src="{{ asset($recentCause->img) }}" alt="recent-causes">
+                        <img class="img-responsive img-whp" src="{{ asset($recentCause->img) }}" alt="recent-causes" loading="lazy">
                         <div class="db-overlayer"></div>
                     </div>
                     <div class="db-details text-left">

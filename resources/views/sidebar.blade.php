@@ -153,11 +153,20 @@
                     </ul>
                 </li>
 
-                <li class="nav-item {{ Request::is('why-choose-us') ? 'menu-open' : '' }}">
-                    <a href="{{ route('why-choose-us.index') }}" class="nav-link">
+                <li class="nav-item {{ Request::is('why-choose-us*') ? 'menu-open' : '' }}">
+                <a href="{{ route('why-choose-us.index') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Why Choose Us
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('about-us*') ? 'menu-open' : '' }}">
+                <a href="{{ route('about-us.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            About Us
                         </p>
                     </a>
                 </li>

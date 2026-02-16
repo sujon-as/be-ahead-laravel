@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\Cause;
 use App\Models\CauseTitle;
 use App\Models\Feature;
@@ -22,6 +23,7 @@ class FrontController extends Controller
         $recentCauseTitles = RecentCauseTitle::first();
         $recentCauses = RecentCause::get();
         $whyChooseUs = WhyChooseUs::first();
+        $aboutUs = AboutUs::first();
 
         return view('front.index', compact(
             'sliders',
@@ -31,12 +33,14 @@ class FrontController extends Controller
              'recentCauseTitles',
              'recentCauses',
              'whyChooseUs',
+             'aboutUs',
         ));
     }
 
     public function about()
     {
-        return view('front.about');
+        $aboutUs = AboutUs::first();
+        return view('front.about', compact('aboutUs'));
     }
 
     public function contact()

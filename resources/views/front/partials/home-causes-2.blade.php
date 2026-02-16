@@ -16,7 +16,7 @@
                     @foreach($causes as $key => $cause)
                         <div class="col-sm-6 col-md-6 col-lg-3 fservice-box ulockd-pad395">
                             <div class="db-thumb">
-                                <img class="img-responsive img-whp" src="{{ asset($cause->img) }}" alt="">
+                                <img class="img-responsive img-whp" src="{{ asset($cause->img) }}" alt="" loading="lazy">
                                 <div class="db-overlayer"></div>
                             </div>
                             <div class="db-details text-left">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
 use App\Http\Controllers\FeatureController;
@@ -66,6 +67,9 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Why Choose Us
     Route::resource('why-choose-us', WhyChooseUsController::class);
+
+    // About Us
+    Route::resource('about-us', AboutUsController::class);
 });
 
 require __DIR__.'/front.php';
