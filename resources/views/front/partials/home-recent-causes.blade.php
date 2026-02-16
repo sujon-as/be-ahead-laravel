@@ -27,8 +27,7 @@
                             href="{{ route('donation') }}"
                             type="button"
                             class="btn btn-default ulockd-btn-thm2"
-                            data-toggle="modal"
-                            data-target=".bs-example-modal-default">
+                        >
                             Donate now
                         </a>
                     </div>

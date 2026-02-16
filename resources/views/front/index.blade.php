@@ -27,19 +27,9 @@
     @endif
 
 	<!-- Our Why Choose -->
-	<section class="ulockd-divider1">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<h5>We are Charity/ Non-profit/ Fundraising/ NGO organizations.Help a child Without Family.</h5>
-					<h2 class="text-uppercase ulockd-mrgn640">Join With Us, Your Attention is changed the part of world.</h2>
-					<p class=" ulockd-mrgn620">Cupiditate qui molestias fugit voluptatibus laudantium maxime voluptate corrupti ab repudiandae dolor repellendus? laudantium maxime voluptate corrupti ab repudiandae dolor repellendus?</p>
-					<button type="submit" class="btn btn-lg ulockd-btn-thm2 ulockd-mrgn315" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button>
-					<button type="submit" class="btn btn-lg ulockd-btn-styledark">Join With Us</button>
-				</div>
-			</div>
-		</div>
-	</section>
+	@if($whyChooseUs)
+        @include('front.partials.home-why-choose')
+    @endif
 
 	<!-- Our About -->
 	<section class="ulockd-about2">

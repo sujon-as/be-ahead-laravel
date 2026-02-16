@@ -7,6 +7,7 @@ use App\Http\Controllers\RecentCauseController;
 use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\WhyChooseUsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
@@ -62,6 +63,9 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // Recent Causes
     Route::resource('recent-cause-titles', RecentCauseTitleController::class);
     Route::resource('front-recent-causes', RecentCauseController::class);
+
+    // Why Choose Us
+    Route::resource('why-choose-us', WhyChooseUsController::class);
 });
 
 require __DIR__.'/front.php';

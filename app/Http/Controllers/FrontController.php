@@ -8,6 +8,7 @@ use App\Models\Feature;
 use App\Models\RecentCause;
 use App\Models\RecentCauseTitle;
 use App\Models\Slider;
+use App\Models\WhyChooseUs;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -20,6 +21,7 @@ class FrontController extends Controller
         $causes = Cause::get();
         $recentCauseTitles = RecentCauseTitle::first();
         $recentCauses = RecentCause::get();
+        $whyChooseUs = WhyChooseUs::first();
 
         return view('front.index', compact(
             'sliders',
@@ -28,6 +30,7 @@ class FrontController extends Controller
              'causes',
              'recentCauseTitles',
              'recentCauses',
+             'whyChooseUs',
         ));
     }
 
