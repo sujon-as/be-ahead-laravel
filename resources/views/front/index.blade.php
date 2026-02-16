@@ -16,7 +16,7 @@
 	<!-- Our Features end -->
 
 	<!-- Our Causes -->
-    @if(count($causeTitles) > 0)
+    @if(count($causes) > 0)
 {{--        @include('front.partials.home-causes')--}}
         @include('front.partials.home-causes-2')
     @endif

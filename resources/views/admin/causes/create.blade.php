@@ -68,7 +68,7 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="content">Causes Title 2 <span class="required">*</span></label>
+                                <label for="content">Content <span class="required">*</span></label>
                                 <textarea class="form-control description" required="" name="content">
                                     {!! old('content') !!}
                                 </textarea>

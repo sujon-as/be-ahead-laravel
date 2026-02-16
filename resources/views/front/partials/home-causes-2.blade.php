@@ -13,118 +13,40 @@
         <div class="row">
             <div class="col-sm-12 col-md-12">
                 <div class="row">
-                    <div class="col-sm-3 col-md-3 fservice-box ulockd-pad395">
-                        <div class="db-thumb">
-                            <img class="img-responsive img-whp" src="{{ asset('front/images/causes/1.jpg') }}" alt="1.jpg') }}">
-                            <div class="db-overlayer"></div>
-                        </div>
-                        <div class="db-details text-left">
-                            <div class="progress-levels ulockd-mrgn1210">
-                                <div class="progress-box wow" data-wow-delay="100ms" data-wow-duration="1500ms">
-                                    <div class="inner">
-                                        <div class="bar">
-                                            <div class="bar-innner">
-                                                <div class="bar-fill ulockd-bgthm" data-percent="80"><div class="percent"></div></div>
+                    @foreach($causes as $key => $cause)
+                        <div class="col-sm-3 col-md-3 fservice-box ulockd-pad395">
+                            <div class="db-thumb">
+                                <img class="img-responsive img-whp" src="{{ asset($cause->img) }}" alt="">
+                                <div class="db-overlayer"></div>
+                            </div>
+                            <div class="db-details text-left">
+                                <div class="progress-levels ulockd-mrgn1210">
+                                    <div class="progress-box wow" data-wow-delay="{{ ($key + 1) * 100 }}ms" data-wow-duration="1500ms">
+                                        <div class="inner">
+                                            <div class="bar">
+                                                <div class="bar-innner">
+                                                    <div class="bar-fill ulockd-bgthm" data-percent="{{ $cause->percentage }}"><div class="percent"></div></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                {!! $cause->content !!}
+                                <ul class="list-inline">
+                                    <li>
+                                        <a
+                                            href="{{ route('donation') }}"
+                                            type="button"
+                                            class="btn btn-default ulockd-btn-thm2"
+                                            data-toggle="modal"
+                                            data-target=".bs-example-modal-default">
+                                            Donate now
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="list-inline">
-                                <li><strong>Raised:</strong> $45000</li>
-                                <li><strong>Goal:</strong> <span class="text-thm2">$70000</span></li>
-                            </ul>
-                            <h3>Charity For Food</h3>
-                            <p>Charity, institutional and modern clothing offices clean extensive amounts of textures in an extensive.</p>
-                            <ul class="list-inline">
-                                <li><button type="submit" class="btn btn-default ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button></li>
-                            </ul>
                         </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 fservice-box ulockd-pad395">
-                        <div class="db-thumb">
-                            <img class="img-responsive img-whp" src="{{ asset('front/images/causes/2.jpg') }}" alt="2.jpg') }}">
-                            <div class="db-overlayer"></div>
-                        </div>
-                        <div class="db-details text-left">
-                            <div class="progress-levels ulockd-mrgn1210">
-                                <div class="progress-box wow" data-wow-delay="200ms" data-wow-duration="1500ms">
-                                    <div class="inner">
-                                        <div class="bar">
-                                            <div class="bar-innner">
-                                                <div class="bar-fill ulockd-bgthm" data-percent="75"><div class="percent"></div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="list-inline">
-                                <li><strong>Raised:</strong> $37000</li>
-                                <li><strong>Goal:</strong> <span class="text-thm2">$45000</span></li>
-                            </ul>
-                            <h3>Charity For Health</h3>
-                            <p>Charity, institutional and modern clothing offices clean extensive amounts of textures in an extensive.</p>
-                            <ul class="list-inline">
-                                <li><button type="submit" class="btn btn-default ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 fservice-box ulockd-pad395">
-                        <div class="db-thumb">
-                            <img class="img-responsive img-whp" src="{{ asset('front/images/causes/3.jpg') }}" alt="3.jpg') }}">
-                            <div class="db-overlayer"></div>
-                        </div>
-                        <div class="db-details text-left">
-                            <div class="progress-levels ulockd-mrgn1210">
-                                <div class="progress-box wow" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                    <div class="inner">
-                                        <div class="bar">
-                                            <div class="bar-innner">
-                                                <div class="bar-fill ulockd-bgthm" data-percent="95"><div class="percent"></div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="list-inline">
-                                <li><strong>Raised:</strong> $22000</li>
-                                <li><strong>Goal:</strong> <span class="text-thm2">$25000</span></li>
-                            </ul>
-                            <h3>Charity For Education</h3>
-                            <p>Charity, institutional and modern clothing offices clean extensive amounts of textures in an extensive.</p>
-                            <ul class="list-inline">
-                                <li><button type="submit" class="btn btn-default ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 fservice-box ulockd-pad395">
-                        <div class="db-thumb">
-                            <img class="img-responsive img-whp" src="{{ asset('front/images/causes/3.jpg') }}" alt="3.jpg') }}">
-                            <div class="db-overlayer"></div>
-                        </div>
-                        <div class="db-details text-left">
-                            <div class="progress-levels ulockd-mrgn1210">
-                                <div class="progress-box wow" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                    <div class="inner">
-                                        <div class="bar">
-                                            <div class="bar-innner">
-                                                <div class="bar-fill ulockd-bgthm" data-percent="95"><div class="percent"></div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="list-inline">
-                                <li><strong>Raised:</strong> $22000</li>
-                                <li><strong>Goal:</strong> <span class="text-thm2">$25000</span></li>
-                            </ul>
-                            <h3>Charity For Education</h3>
-                            <p>Charity, institutional and modern clothing offices clean extensive amounts of textures in an extensive.</p>
-                            <ul class="list-inline">
-                                <li><button type="submit" class="btn btn-default ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button></li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <!--
