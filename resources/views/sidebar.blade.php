@@ -126,6 +126,33 @@
                     </ul>
                 </li>
 
+                <li class="nav-item {{( Request::is('recent-cause-titles*') || Request::is('front-recent-causes*')) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Recent Causes
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('recent-cause-titles.index') }}"
+                               class="nav-link {{ request()->routeIs('recent-cause-titles.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Recent Cause Title</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('front-recent-causes.index') }}"
+                               class="nav-link {{ request()->routeIs('front-recent-causes.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Recent Causes</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="nav-item {{ Request::is('settings') ? 'menu-open' : '' }}">
                     <a href="{{ route('settings') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cause;
 use App\Models\CauseTitle;
 use App\Models\Feature;
+use App\Models\RecentCause;
+use App\Models\RecentCauseTitle;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -16,12 +18,16 @@ class FrontController extends Controller
         $features = Feature::where('status', 'Active')->get();
         $causeTitles = CauseTitle::get();
         $causes = Cause::get();
+        $recentCauseTitles = RecentCauseTitle::first();
+        $recentCauses = RecentCause::get();
 
         return view('front.index', compact(
             'sliders',
              'features',
              'causeTitles',
              'causes',
+             'recentCauseTitles',
+             'recentCauses',
         ));
     }
 

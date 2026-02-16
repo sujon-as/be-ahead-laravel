@@ -3,6 +3,8 @@
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\RecentCauseController;
+use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Artisan;
@@ -56,6 +58,10 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // Causes
     Route::resource('front-causes', CauseController::class);
     Route::resource('cause-titles', CauseTitleController::class);
+
+    // Recent Causes
+    Route::resource('recent-cause-titles', RecentCauseTitleController::class);
+    Route::resource('front-recent-causes', RecentCauseController::class);
 });
 
 require __DIR__.'/front.php';
