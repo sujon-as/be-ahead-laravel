@@ -47,70 +47,9 @@
     @endif
 
 	<!-- Our Project -->
-	<section class="our-projects">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="ulockd-main-title">
-						<h2 class="text-uppercase">Our <span class="text-thm2">Project</span></h2>
-						<h4>Your Attention Is Changed The Part Of World.Give a helping hand to those who need it!</h4>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="project-box">
-					<div class="col-sm-4 col-md-2 pb-thumb ulockd-pad395">
-						<img class="img-responsive img-whp" src="{{ asset('front/images/project/1a.jpg') }}" alt="1a.jpg') }}">
-						<div class="donate-button"><a href="#" class="btn ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</a></div>
-					</div>
-					<div class="col-sm-8 col-md-4 pb-details">
-						<h3>Clean Water</h3>
-						<p>Consectetur adipisicing elit</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore modi repellendus aspernatur necessitatibus quidem nostrum, iure illum perferendis.</p>
-						<a href="#" class="">More Details <span class="flaticon-right-arrow"></span></a>
-					</div>
-				</div>
-				<div class="project-box">
-					<div class="col-sm-4 col-md-2 pb-thumb ulockd-pad395">
-						<img class="img-responsive img-whp" src="{{ asset('front/images/project/2a.jpg') }}" alt="2a.jpg') }}">
-						<div class="donate-button"><a href="#" class="btn ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</a></div>
-					</div>
-					<div class="col-sm-8 col-md-4 pb-details">
-						<h3>Education For Child</h3>
-						<p>Consectetur adipisicing elit</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore modi repellendus aspernatur necessitatibus quidem nostrum, iure illum perferendis.</p>
-						<a href="#" class="">More Details <span class="flaticon-right-arrow"></span></a>
-					</div>
-				</div>
-			</div>
-			<div class="row ulockd-mrgn1225">
-				<div class="project-box">
-					<div class="col-sm-4 col-md-2 pb-thumb ulockd-pad395">
-						<img class="img-responsive img-whp" src="{{ asset('front/images/project/3a.jpg') }}" alt="3a.jpg') }}">
-						<div class="donate-button"><a href="#" class="btn ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</a></div>
-					</div>
-					<div class="col-sm-8 col-md-4 pb-details">
-						<h3>Health For All</h3>
-						<p>Consectetur adipisicing elit</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore modi repellendus aspernatur necessitatibus quidem nostrum, iure illum perferendis.</p>
-						<a href="#" class="">More Details <span class="flaticon-right-arrow"></span></a>
-					</div>
-				</div>
-				<div class="project-box">
-					<div class="col-sm-4 col-md-2 pb-thumb ulockd-pad395">
-						<img class="img-responsive img-whp" src="{{ asset('front/images/project/4a.jpg') }}" alt="4a.jpg') }}">
-						<div class="donate-button"><a href="#" class="btn ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</a></div>
-					</div>
-					<div class="col-sm-8 col-md-4 pb-details">
-						<h3>Refugee Save</h3>
-						<p>Consectetur adipisicing elit</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore modi repellendus aspernatur necessitatibus quidem nostrum, iure illum perferendis.</p>
-						<a href="#" class="">More Details <span class="flaticon-right-arrow"></span></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    @if($projectTitle && count($projects) > 0)
+        @include('front.partials.home-projects')
+    @endif
 
 	<!-- Our First Divider -->
 	<section class="divider ulockd-bgthm">
