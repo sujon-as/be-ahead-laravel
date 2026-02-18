@@ -19,5 +19,7 @@ Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
 Route::get('/ajax/home-gallery/all', [FrontController::class, 'homeGalleryAll']);
 Route::get('/ajax/home-gallery/category/{id}', [FrontController::class, 'homeGalleryByCategory']);
 
+Route::post('/volunteer-reg', [FrontController::class, 'volunteerReg'])->name('volunteer-reg');
+
 
 

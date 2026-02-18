@@ -49,46 +49,142 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                    <form class="volunteer-reg-form">
+                    <form class="volunteer-reg-form" action="{{ route('volunteer-reg') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <h3 class="well">Registration Form</h3>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <label>First Name</label>
-                                <input type="text" placeholder="Enter First Name Here.." class="form-control">
+                                <label for="f_name">First Name <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter First Name Here.."
+                                    class="form-control"
+                                    required=""
+                                    name="f_name"
+                                >
+                                @error('f_name')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-6 form-group">
-                                <label>Last Name</label>
-                                <input type="text" placeholder="Enter Last Name Here.." class="form-control">
+                                <label for="l_name">Last Name <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Last Name Here.."
+                                    class="form-control"
+                                    required=""
+                                    name="l_name"
+                                >
+                                @error('l_name')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-12 form-group">
-                                <label>Phone Number</label>
-                                <input type="text" placeholder="Enter Phone Number Here.." class="form-control">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Phone Number Here.."
+                                    class="form-control"
+                                    required=""
+                                    name="phone"
+                                >
+                                @error('phone')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-12 form-group">
-                                <label>Email Address</label>
-                                <input type="text" placeholder="Enter Email Address Here.." class="form-control">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Email Address Here.."
+                                    class="form-control"
+                                    required=""
+                                    name="email"
+                                >
+                                @error('email')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-12 form-group">
-                                <label>Address</label>
-                                <textarea placeholder="Enter Address Here.." rows="3" class="form-control"></textarea>
+                                <label for="address">Address <span class="required">*</span></label>
+                                <textarea
+                                    placeholder="Enter Address Here.."
+                                    rows="3"
+                                    required=""
+                                    name="address"
+                                    class="form-control">
+
+                                </textarea>
+                                @error('address')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <label>City</label>
-                                <input type="text" placeholder="Enter City Name" class="form-control">
+                                <label for="city">City <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter City Name"
+                                    class="form-control"
+                                    required=""
+                                    name="city"
+                                >
+                                @error('city')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-4 form-group">
-                                <label>State</label>
-                                <input type="text" placeholder="Enter State Name" class="form-control">
+                                <label for="state">State <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter State Name"
+                                    class="form-control"
+                                    required=""
+                                    name="state"
+                                >
+                                @error('state')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-4 form-group">
-                                <label>Zip</label>
-                                <input type="text" placeholder="Enter Zip Code" class="form-control">
+                                <label for="zip">Zip  <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Zip Code"
+                                    class="form-control"
+                                    required=""
+                                    name="zip"
+                                >
+                                @error('zip')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-12 form-group">
-                                <label>Country</label>
-                                <input type="text" placeholder="Enter Designation" class="form-control">
+                                <label for="country">Country  <span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Designation"
+                                    class="form-control"
+                                    required=""
+                                    name="country"
+                                >
+                                @error('country')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label for="image">Image  <span class="required">*</span></label>
+                                <input
+                                    type="file"
+                                    placeholder="Image"
+                                    class="form-control"
+                                    required=""
+                                    name="image"
+                                >
+                                @error('image')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                                 <button type="button" class="btn btn-lg ulockd-btn-thm2 ulockd-mrgn1220">Submit</button>
                             </div>
                         </div>

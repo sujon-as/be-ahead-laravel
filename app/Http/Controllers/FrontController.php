@@ -123,4 +123,9 @@ class FrontController extends Controller
     {
         return view('front.faq');
     }
+
+    public function volunteerReg()
+    {
+        return view('front.faq');
+    }
 }
