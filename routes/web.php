@@ -4,7 +4,9 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\GalleryImageController;
 use App\Http\Controllers\RecentCauseController;
 use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
@@ -74,6 +76,12 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Gallery
     Route::resource('galleries', GalleryController::class);
+
+    // Gallery Category
+    Route::resource('gallery-categories', GalleryCategoryController::class);
+
+    // Gallery Image
+    Route::resource('gallery-images', GalleryImageController::class);
 
 });
 

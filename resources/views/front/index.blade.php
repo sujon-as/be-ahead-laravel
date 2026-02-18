@@ -37,7 +37,7 @@
     @endif
 
 	<!-- Our Gallery -->
-    @if($aboutUs)
+    @if($gallery && $galleryCategories)
         @include('front.partials.home-gallery')
     @endif
 

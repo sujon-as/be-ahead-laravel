@@ -171,7 +171,11 @@
                     </a>
                 </li>
 
-                <li class="nav-item {{ (Request::is('galleries*')) ? 'menu-open' : '' }}">
+                <li class="nav-item
+                    {{
+                    (Request::is('galleries*') || Request::is('gallery-categories*') || Request::is('gallery-images*')) ? 'menu-open' : ''
+                    }}"
+                >
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
@@ -188,10 +192,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('front-recent-causes.index') }}"
-                               class="nav-link {{ request()->routeIs('front-recent-causes.index') ? 'active_nav_menu' : '' }}">
+                            <a href="{{ route('gallery-categories.index') }}"
+                               class="nav-link {{ request()->routeIs('gallery-categories.index') ? 'active_nav_menu' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Category</p>
+                                <p>Gallery Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('gallery-images.index') }}"
+                               class="nav-link {{ request()->routeIs('gallery-images.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Gallery Images</p>
                             </a>
                         </li>
 

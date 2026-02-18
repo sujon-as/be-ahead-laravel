@@ -13,3 +13,10 @@ Route::get('/team', [FrontController::class, 'team'])->name('team');
 Route::get('/appointment', [FrontController::class, 'appointment'])->name('appointment');
 Route::get('/donation', [FrontController::class, 'donation'])->name('donation');
 Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
+
+// Ajax routes
+Route::get('/ajax/home-gallery/all', [FrontController::class, 'homeGalleryAll']);
+Route::get('/ajax/home-gallery/category/{id}', [FrontController::class, 'homeGalleryByCategory']);
+
+
+

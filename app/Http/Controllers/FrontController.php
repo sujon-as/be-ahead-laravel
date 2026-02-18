@@ -7,6 +7,8 @@ use App\Models\Cause;
 use App\Models\CauseTitle;
 use App\Models\Feature;
 use App\Models\Gallery;
+use App\Models\GalleryCategory;
+use App\Models\GalleryImage;
 use App\Models\RecentCause;
 use App\Models\RecentCauseTitle;
 use App\Models\Slider;
@@ -26,6 +28,7 @@ class FrontController extends Controller
         $whyChooseUs = WhyChooseUs::first();
         $aboutUs = AboutUs::first();
         $gallery = Gallery::first();
+        $galleryCategories = GalleryCategory::get();
 
         return view('front.index', compact(
             'sliders',
@@ -37,7 +40,22 @@ class FrontController extends Controller
              'whyChooseUs',
              'aboutUs',
              'gallery',
+             'galleryCategories',
         ));
+    }
+    public function homeGalleryAll()
+    {
+        $images = GalleryImage::with('category')->get();
+        return view('front.partials.home-gallery-items', compact('images'));
+    }
+
+    public function homeGalleryByCategory($id)
+    {
+        $images = GalleryImage::with('category')
+            ->where('gallery_category_id', $id)
+            ->get();
+
+        return view('front.partials.home-gallery-items', compact('images'));
     }
 
     public function about()
@@ -63,7 +81,10 @@ class FrontController extends Controller
 
     public function gallery()
     {
-        return view('front.gallery');
+        $gallery = Gallery::first();
+        $galleryCategories = GalleryCategory::get();
+
+        return view('front.gallery', compact('gallery', 'galleryCategories'));
     }
 
     public function team()
