@@ -136,7 +136,11 @@
 						<div class="ulockd-icon pull-left text-thm2"><span class="flaticon-make-a-donation"></span></div>
 						<div class="ulockd-info">
 							<!-- Trigger the modal with a button -->
-							<button type="button" class="btn btn-lg ulockd-btn-thm2 ulockd-mrgn1215 ulockd-mrgn610" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button>
+{{--							<button type="button" class="btn btn-lg ulockd-btn-thm2 ulockd-mrgn1215 ulockd-mrgn610" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</button>--}}
+                            <a href="{{ route('donation') }}">
+                                <button type="button" class="btn btn-lg ulockd-btn-thm2 ulockd-mrgn1215 ulockd-mrgn610">Donate now</button>
+                            </a>
+
 							<!-- Modal -->
 							<div id="Donation-form-modal" class="modal fade bs-example-modal-default text-left" role="dialog">
 								<div class="modal-dialog">
@@ -486,6 +490,24 @@
                                         data-toggle="dropdown"
                                     >
                                         Gallery
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a
+                                        href="{{ route('team') }}"
+                                        class="dropdown-toggle {{ Request::is('team') ? 'active' : '' }}"
+                                        data-toggle="dropdown"
+                                    >
+                                        Team
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a
+                                        href="{{ route('volunteer') }}"
+                                        class="dropdown-toggle {{ Request::is('volunteer') ? 'active' : '' }}"
+                                        data-toggle="dropdown"
+                                    >
+                                        Volunteer
                                     </a>
                                 </li>
                                 <li class="">

@@ -104,6 +104,11 @@ class FrontController extends Controller
         return view('front.team');
     }
 
+    public function volunteer()
+    {
+        return view('front.volunteer');
+    }
+
     public function appointment()
     {
         return view('front.appointment');
