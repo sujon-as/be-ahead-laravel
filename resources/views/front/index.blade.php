@@ -42,76 +42,9 @@
     @endif
 
 	<!-- Our Service -->
-	<section class="ulockd-service-two">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="ulockd-main-title">
-						<h2 class="text-uppercase">Our <span class="text-thm2">Mission</span></h2>
-						<h4>Your Attention Is Changed The Part Of World.Give a helping hand to those who need it!</h4>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-4 clearfix">
-					<div class="ulockd-mssn-col ulockd-mrgn650">
-						<div class="missn-icon"><span class="flaticon-rice"></span></div>
-						<div class="missn-details">
-							<h3>Charity For Food</h3>
-							<p>This level of development and supervision is for individuals who can't live without anyone else's input yet who.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4 clearfix">
-					<div class="ulockd-mssn-col ulockd-mrgn650">
-						<div class="missn-icon"><span class="flaticon-t-shirt-black-silhouette"></span></div>
-						<div class="missn-details">
-							<h3>Charity For Cloth</h3>
-							<p>This level of development and supervision is for individuals who can't live without anyone else's input yet who.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4 clearfix">
-					<div class="ulockd-mssn-col ulockd-mrgn650">
-						<div class="missn-icon"><span class="flaticon-business-8"></span></div>
-						<div class="missn-details">
-							<h3>Charity For Education</h3>
-							<p>This level of development and supervision is for individuals who can't live without anyone else's input yet who.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-4 clearfix">
-					<div class="ulockd-mssn-col">
-						<div class="missn-icon"><span class="flaticon-health-care"></span></div>
-						<div class="missn-details">
-							<h3>Charity For Health</h3>
-							<p>This level of development and supervision is for individuals who can't live without anyone else's input yet who.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4 clearfix">
-					<div class="ulockd-mssn-col">
-						<div class="missn-icon"><span class="flaticon-woman-and-child-holding-hands"></span></div>
-						<div class="missn-details">
-							<h3>Charity For Shelter</h3>
-							<p>This level of development and supervision is for individuals who can't live without anyone else's input yet who.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4 clearfix">
-					<div class="ulockd-mssn-col">
-						<div class="missn-icon"><span class="flaticon-water"></span></div>
-						<div class="missn-details">
-							<h3>Charity For Clean Water</h3>
-							<p>This level of development and supervision is for individuals who can't live without anyone else's input yet who.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    @if($missionTitle && count($missions) > 0)
+        @include('front.partials.home-services')
+    @endif
 
 	<!-- Our Project -->
 	<section class="our-projects">

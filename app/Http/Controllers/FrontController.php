@@ -9,6 +9,8 @@ use App\Models\Feature;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Models\GalleryImage;
+use App\Models\Mission;
+use App\Models\MissionTitle;
 use App\Models\RecentCause;
 use App\Models\RecentCauseTitle;
 use App\Models\Slider;
@@ -29,6 +31,8 @@ class FrontController extends Controller
         $aboutUs = AboutUs::first();
         $gallery = Gallery::first();
         $galleryCategories = GalleryCategory::get();
+        $missionTitle = MissionTitle::first();
+        $missions = Mission::get();
 
         return view('front.index', compact(
             'sliders',
@@ -41,6 +45,8 @@ class FrontController extends Controller
              'aboutUs',
              'gallery',
              'galleryCategories',
+             'missionTitle',
+             'missions',
         ));
     }
     public function homeGalleryAll()

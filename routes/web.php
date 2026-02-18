@@ -7,6 +7,8 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GalleryImageController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\MissionTitleController;
 use App\Http\Controllers\RecentCauseController;
 use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
@@ -82,6 +84,12 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Gallery Image
     Route::resource('gallery-images', GalleryImageController::class);
+
+    // Mission Titles
+    Route::resource('mission-titles', MissionTitleController::class);
+
+    // Mission
+    Route::resource('missions', MissionController::class);
 
 });
 

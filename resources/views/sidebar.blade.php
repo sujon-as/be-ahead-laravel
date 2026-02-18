@@ -209,6 +209,37 @@
                     </ul>
                 </li>
 
+                <li class="nav-item
+                    {{
+                    (Request::is('mission-titles*')) ? 'menu-open' : ''
+                    }}"
+                >
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Missions
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('mission-titles.index') }}"
+                               class="nav-link {{ request()->routeIs('mission-titles.*') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Title</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('missions.index') }}"
+                               class="nav-link {{ request()->routeIs('missions.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Contents</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="nav-item {{ Request::is('settings') ? 'menu-open' : '' }}">
                     <a href="{{ route('settings') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
