@@ -60,45 +60,9 @@
     @endif
 
 	<!-- Our First Divider -->
-	<section class="ulockd-frst-divider style1 parallax" data-stellar-background-ratio="0.3">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<h2 class="color-white">Be aHand Proud to Say, After Providing The Best Non-Profit Support.</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6 col-md-3 text-center">
-					<div class="ulockd-ffact-one">
-						<span class="flaticon-people-12 text-thm2"></span>
-                        <p>Total Volunteers</p>
-                        <div class="timer">455860</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 text-center">
-					<div class="ulockd-ffact-one">
-						<span class="flaticon-medal text-thm2"></span>
-                        <p>Total Award</p>
-                        <div classs="timer">2052</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 text-center">
-					<div class="ulockd-ffact-one">
-						<span class="flaticon-interface text-thm2"></span>
-                        <p>Successful Projects</p>
-                        <div class="timer">22780</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 text-center">
-					<div class="ulockd-ffact-one">
-						<span class="flaticon-donation text-thm2"></span>
-                        <p>Total Amount Raised</p>
-                        <div class="timer">1707400</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    @if($awardTitle && count($awards) > 0)
+        @include('front.partials.home-award')
+    @endif
 
 	<!-- Our Testimonials -->
 	<section class="ulockd-testimonial">

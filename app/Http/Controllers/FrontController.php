@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\VolunteerRequest;
 use App\Models\AboutUs;
+use App\Models\Award;
+use App\Models\AwardTitle;
 use App\Models\Cause;
 use App\Models\CauseTitle;
 use App\Models\Feature;
@@ -43,6 +45,8 @@ class FrontController extends Controller
         $projectTitle = ProjectTitle::first();
         $projects = Project::get();
         $volunteers = Volunteer::where('status', 'Active')->get();
+        $awardTitle = AwardTitle::first();
+        $awards = Award::get();
 
         return view('front.index', compact(
             'sliders',
@@ -60,6 +64,8 @@ class FrontController extends Controller
              'projectTitle',
              'projects',
              'volunteers',
+             'awardTitle',
+             'awards',
         ));
     }
     public function homeGalleryAll()

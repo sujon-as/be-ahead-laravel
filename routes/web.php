@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AwardController;
+use App\Http\Controllers\AwardTitleController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
 use App\Http\Controllers\FeatureController;
@@ -104,6 +106,12 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     Route::resource('volunteers', VolunteerController::class);
     Route::post('volunteer-status-update', [VolunteerController::class, 'volunteerStatusUpdate'])
         ->name('volunteer-status-update');
+
+    // Award Titles
+    Route::resource('award-titles', AwardTitleController::class);
+
+    // Awards
+    Route::resource('awards', AwardController::class);
 
 });
 
