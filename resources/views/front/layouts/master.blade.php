@@ -23,5 +23,23 @@
     <a class="scrollToHome" href="#"><i class="fa fa-home"></i></a>
 </div>
 @include('front.layouts.partials.js')
+
+<script>
+    $(function () {
+        $('#summernote').summernote();
+
+        var base_url = "{{url('/')}}";
+        localStorage.setItem('base_url', base_url);
+
+    })
+</script>
+
+<script src="{{ asset('custom/toastr.js') }}"></script>
+
+@if(Session::has('message'))
+    @toastr("{{ Session::get('message') }}")
+@endif
+
+@stack('scripts')
 </body>
 </html>

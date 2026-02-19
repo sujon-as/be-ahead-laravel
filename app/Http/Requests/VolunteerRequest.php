@@ -30,8 +30,8 @@ class VolunteerRequest extends FormRequest
         $data = $this->route('slider');
         $id = $data?->id ?? null;
 
-        if ($routeName === 'slider-status-update') {
-            return Volunteer::serviceStausUpdateRules();
+        if ($routeName === 'volunteer-status-update') {
+            return Volunteer::volunteerStausUpdateRules();
         }
 
         return Volunteer::rules($id);

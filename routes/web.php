@@ -15,6 +15,7 @@ use App\Http\Controllers\RecentCauseController;
 use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WhyChooseUsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -98,6 +99,11 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Project
     Route::resource('projects', ProjectController::class);
+
+    // Volunteers
+    Route::resource('volunteers', VolunteerController::class);
+    Route::post('volunteer-status-update', [VolunteerController::class, 'volunteerStatusUpdate'])
+        ->name('volunteer-status-update');
 
 });
 

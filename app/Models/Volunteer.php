@@ -35,7 +35,16 @@ class Volunteer extends Model
             'zip'    => 'required|string|max:255',
             'country'    => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'status'     => 'required|in:Active,Inactive',
+            'status'     => 'nullable|in:Active,Inactive',
+        ];
+
+        return $rules;
+    }
+    public static function volunteerStausUpdateRules()
+    {
+        $rules = [
+            'id' => 'required|string|exists:volunteers,id',
+            'status' => 'required|in:Active,Inactive',
         ];
 
         return $rules;

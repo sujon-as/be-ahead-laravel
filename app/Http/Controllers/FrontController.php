@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VolunteerRequest;
 use App\Models\AboutUs;
 use App\Models\Cause;
 use App\Models\CauseTitle;
@@ -16,8 +17,12 @@ use App\Models\ProjectTitle;
 use App\Models\RecentCause;
 use App\Models\RecentCauseTitle;
 use App\Models\Slider;
+use App\Models\Volunteer;
 use App\Models\WhyChooseUs;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class FrontController extends Controller
 {
@@ -37,6 +42,7 @@ class FrontController extends Controller
         $missions = Mission::get();
         $projectTitle = ProjectTitle::first();
         $projects = Project::get();
+        $volunteers = Volunteer::where('status', 'Active')->get();
 
         return view('front.index', compact(
             'sliders',
@@ -53,6 +59,7 @@ class FrontController extends Controller
              'missions',
              'projectTitle',
              'projects',
+             'volunteers',
         ));
     }
     public function homeGalleryAll()
@@ -101,7 +108,8 @@ class FrontController extends Controller
 
     public function team()
     {
-        return view('front.team');
+        $volunteers = Volunteer::where('status', 'Active')->get();
+        return view('front.team', compact('volunteers'));
     }
 
     public function volunteer()
@@ -124,8 +132,60 @@ class FrontController extends Controller
         return view('front.faq');
     }
 
-    public function volunteerReg()
+    public function volunteerReg(VolunteerRequest $request)
     {
-        return view('front.faq');
+        DB::beginTransaction();
+        try
+        {
+            // Handle file upload
+            $filePath = null;
+            if ($request->hasFile('image')) {
+                $filePath = storeFile(
+                    $request->file('image'),
+                    'vr_images',
+                    'vrImage_'
+                );
+            }
+
+            $data = new Volunteer();
+            $data->f_name = $request->f_name;
+            $data->l_name = $request->l_name;
+            $data->phone = $request->phone;
+            $data->email = $request->email;
+            $data->address = $request->address;
+            $data->city = $request->city;
+            $data->state = $request->state;
+            $data->zip = $request->zip;
+            $data->country = $request->country;
+            $data->image = $filePath;
+            $data->status = 'Inactive';
+            $data->save();
+
+            DB::commit();
+
+            $notification=array(
+                'message' => "Registration Successfully, Please wait for admin approval.",
+                'alert-type' => "success",
+            );
+
+            return redirect()->route('volunteer')->with($notification);
+
+        } catch(Exception $e) {
+            DB::rollback();
+
+            // Log the error
+            Log::error('Error in store: ', [
+                'message' => $e->getMessage(),
+                'code' => $e->getCode(),
+                'line' => $e->getLine()
+            ]);
+
+            $notification=array(
+                'message' => 'Something went wrong!!!',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->route('volunteer')->with($notification);
+        }
     }
 }

@@ -271,6 +271,15 @@
                     </ul>
                 </li>
 
+                <li class="nav-item {{ Request::is('volunteers') ? 'menu-open' : '' }}">
+                    <a href="{{ route('volunteers.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Volunteers
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item {{ Request::is('settings') ? 'menu-open' : '' }}">
                     <a href="{{ route('settings') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>

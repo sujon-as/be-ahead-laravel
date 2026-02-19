@@ -185,7 +185,7 @@
                                 @error('image')
                                     <span class="alert alert-danger">{{ $message }}</span>
                                 @enderror
-                                <button type="button" class="btn btn-lg ulockd-btn-thm2 ulockd-mrgn1220">Submit</button>
+                                <button type="submit" class="btn btn-lg ulockd-btn-thm2 ulockd-mrgn1220">Submit</button>
                             </div>
                         </div>
                     </form>
