@@ -340,7 +340,7 @@
 			            <div class="collapse navbar-collapse" id="navbar-menu">
 			                <ul class="nav navbar-nav navbar-left" data-in="fadeIn">
 			                    <li class="">
-			                        <a href="{{ route('home') }}" class="dropdown-toggle {{ Request::is('/') ? 'active' : '' }}" data-toggle="dropdown">Home</a>
+			                        <a href="{{ route('home') }}" class="{{ Request::is('/') ? 'active' : '' }}">Home</a>
                                     {{--
 			                        <ul class="dropdown-menu">
 										<li class="dropdown">
@@ -379,7 +379,7 @@
                                     --}}
 			                    </li>
 			                    <li class="">
-			                        <a href="{{ route('about') }}" class="dropdown-toggle {{ Request::is('about') ? 'active' : '' }}" data-toggle="dropdown">About Us</a>
+			                        <a href="{{ route('about') }}" class="{{ Request::is('about') ? 'active' : '' }}">About Us</a>
                                     {{--
 			                        <ul class="dropdown-menu">
 					                    <li class="dropdown">
@@ -459,8 +459,7 @@
                                 <li class="">
                                     <a
                                         href="{{ route('appointment') }}"
-                                        class="dropdown-toggle {{ Request::is('appointment') ? 'active' : '' }}"
-                                        data-toggle="dropdown"
+                                        class="{{ Request::is('appointment') ? 'active' : '' }}"
                                     >
                                         Appointment
                                     </a>
@@ -468,8 +467,7 @@
                                 <li class="">
                                     <a
                                         href="{{ route('donation') }}"
-                                        class="dropdown-toggle {{ Request::is('donation') ? 'active' : '' }}"
-                                        data-toggle="dropdown"
+                                        class="{{ Request::is('donation') ? 'active' : '' }}"
                                     >
                                         Donation Form
                                     </a>
@@ -477,8 +475,7 @@
                                 <li class="">
                                     <a
                                         href="{{ route('faq') }}"
-                                        class="dropdown-toggle {{ Request::is('faq') ? 'active' : '' }}"
-                                        data-toggle="dropdown"
+                                        class="{{ Request::is('faq') ? 'active' : '' }}"
                                     >
                                         Faq
                                     </a>
@@ -486,8 +483,7 @@
                                 <li class="">
                                     <a
                                         href="{{ route('gallery') }}"
-                                        class="dropdown-toggle {{ Request::is('gallery') ? 'active' : '' }}"
-                                        data-toggle="dropdown"
+                                        class="{{ Request::is('gallery') ? 'active' : '' }}"
                                     >
                                         Gallery
                                     </a>
@@ -495,8 +491,7 @@
                                 <li class="">
                                     <a
                                         href="{{ route('team') }}"
-                                        class="dropdown-toggle {{ Request::is('team') ? 'active' : '' }}"
-                                        data-toggle="dropdown"
+                                        class="{{ Request::is('team') ? 'active' : '' }}"
                                     >
                                         Team
                                     </a>
@@ -504,8 +499,7 @@
                                 <li class="">
                                     <a
                                         href="{{ route('volunteer') }}"
-                                        class="dropdown-toggle {{ Request::is('volunteer') ? 'active' : '' }}"
-                                        data-toggle="dropdown"
+                                        class="{{ Request::is('volunteer') ? 'active' : '' }}"
                                     >
                                         Volunteer
                                     </a>
@@ -513,8 +507,7 @@
                                 <li class="">
                                     <a
                                         href="{{ route('contact') }}"
-                                        class="dropdown-toggle {{ Request::is('contact') ? 'active' : '' }}"
-                                        data-toggle="dropdown"
+                                        class="{{ Request::is('contact') ? 'active' : '' }}"
                                     >
                                         Contact Us
                                     </a>
