@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AppointmentRequest;
 use App\Http\Requests\VolunteerRequest;
 use App\Models\AboutUs;
+use App\Models\Appointment;
+use App\Models\AppointmentTitle;
 use App\Models\Award;
 use App\Models\AwardTitle;
 use App\Models\Cause;
@@ -129,7 +132,16 @@ class FrontController extends Controller
     {
         $faqTitle = FaqTitle::first();
         $faqs = Faq::get();
-        return view('front.appointment', compact('faqTitle', 'faqs'));
+        $awardTitle = AwardTitle::first();
+        $volunteers = Volunteer::where('status', 'Active')->get();
+        $appointmentTitle = AppointmentTitle::first();
+        return view('front.appointment', compact(
+            'faqTitle',
+            'faqs',
+            'volunteers',
+            'appointmentTitle',
+            'awardTitle'
+        ));
     }
 
     public function donation()
@@ -198,6 +210,46 @@ class FrontController extends Controller
             );
 
             return redirect()->route('volunteer')->with($notification);
+        }
+    }
+    public function appointmentSubmit(AppointmentRequest $request)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $data = new Appointment();
+            $data->name = trim($request->name);
+            $data->email = trim($request->email);
+            $data->phone = trim($request->phone);
+            $data->date = trim($request->date);
+            $data->message = trim($request->message);
+            $data->save();
+
+            DB::commit();
+
+            $notification=array(
+                'message' => "Appointment submitted Successfully, Please wait for admin response.",
+                'alert-type' => "success",
+            );
+
+            return redirect()->route('appointment')->with($notification);
+
+        } catch(Exception $e) {
+            DB::rollback();
+
+            // Log the error
+            Log::error('Error in store: ', [
+                'message' => $e->getMessage(),
+                'code' => $e->getCode(),
+                'line' => $e->getLine()
+            ]);
+
+            $notification=array(
+                'message' => 'Something went wrong!!!',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->route('appointment')->with($notification);
         }
     }
 }

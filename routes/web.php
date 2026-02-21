@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AppointmentTitleController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AwardTitleController;
 use App\Http\Controllers\CauseController;
@@ -120,6 +122,12 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // FAQs
     Route::resource('faqs', FaqController::class);
+
+    // Appointment Title
+    Route::resource('appointment-titles', AppointmentTitleController::class);
+
+    // Appointment
+    Route::resource('appointments', AppointmentController::class);
 
 });
 

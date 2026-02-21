@@ -342,6 +342,37 @@
                     </ul>
                 </li>
 
+                <li class="nav-item
+                    {{
+                    (Request::is('appointment-titles*') || Request::is('appointments*')) ? 'menu-open' : ''
+                    }}"
+                >
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Appointment
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('appointment-titles.index') }}"
+                               class="nav-link {{ request()->routeIs('appointment-titles.*') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Title</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('appointments.index') }}"
+                               class="nav-link {{ request()->routeIs('appointments.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Appointment List</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="nav-item {{ Request::is('settings') ? 'menu-open' : '' }}">
                     <a href="{{ route('settings') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
