@@ -10,77 +10,79 @@
 
         <div class="row">
             <div class="col-md-12">
-                @if(count($galleryCategories) > 0)
-                    <ul class="list-inline masonry-filter text-center">
+                <ul class="list-inline masonry-filter text-center">
+                    <li>
+                        <a href="#" class="active" data-filter="*">All</a>
+                    </li>
+                    @foreach($galleryCategories as $category)
                         <li>
-                            <a href="#" class="active gallery-filter" data-type="all">All</a>
+                            <a href="#" data-filter=".category-{{ $category->id }}">
+                                {{ $category->title }}
+                            </a>
                         </li>
-                        @foreach($galleryCategories as $category)
-                            <li>
-                                <a href="#"
-                                   class="gallery-filter"
-                                   data-id="{{ $category->id }}">
-                                    {{ $category->title }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
+                    @endforeach
+                </ul>
 
-                <!-- Masonry Grid -->
                 <div id="grid" class="masonry-gallery grid-four-item clearfix">
-                    <div id="gallery-wrapper">
-                        <!-- AJAX content will load here -->
-                    </div>
+                    @foreach($images as $img)
+                        <div class="isotope-item category-{{ $img->gallery_category_id }}">
+                            <div class="gallery-thumb">
+                                <img class="img-responsive img-whp"
+                                     src="{{ asset($img->image) }}"
+                                     alt="{{ $img->title }}">
+
+                                <div class="overlayer">
+                                    <div class="lbox-caption">
+                                        <div class="lbox-details">
+                                            <h5>{{ $img->title }}</h5>
+                                            <ul class="list-inline">
+                                                <li>
+                                                    <a class="popup-img" href="{{ asset($img->image) }}">
+                                                        <span class="flaticon-add-square-button"></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-    function loadAllGallery() {
-        fetch('/ajax/home-gallery/all')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('gallery-wrapper').innerHTML = html;
-                $('#grid').isotope('destroy');
-                $('#grid').isotope({
-                    itemSelector: '.isotope-item',
-                    layoutMode: 'masonry'
-                });
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // Initialize isotope
+            var $grid = $('#grid').isotope({
+                itemSelector: '.isotope-item',
+                layoutMode: 'masonry',
+                masonry: {
+                    columnWidth: '.isotope-item',
+                    gutter: 10
+                }
             });
-    }
 
-    // First load → All
-    loadAllGallery();
+            // Filter items on button click
+            $('.masonry-filter').on('click', 'a', function(e) {
+                e.preventDefault();
 
-    document.querySelectorAll('.gallery-filter').forEach(btn => {
-        btn.addEventListener('click', function(e){
-            e.preventDefault();
+                var filterValue = $(this).attr('data-filter');
 
-            document.querySelectorAll('.gallery-filter')
-                .forEach(b => b.classList.remove('active'));
+                $grid.isotope({ filter: filterValue });
 
-            this.classList.add('active');
+                $('.masonry-filter a').removeClass('active');
+                $(this).addClass('active');
+            });
 
-            let type = this.dataset.type;
-            let id = this.dataset.id;
-
-            if(type === 'all'){
-                loadAllGallery();
-            } else {
-                fetch('/ajax/home-gallery/category/' + id)
-                    .then(res => res.text())
-                    .then(html => {
-                        document.getElementById('gallery-wrapper').innerHTML = html;
-                        $('#grid').isotope('destroy');
-                        $('#grid').isotope({
-                            itemSelector: '.isotope-item',
-                            layoutMode: 'masonry'
-                        });
-                    });
-            }
+            // Layout after images load
+            $grid.imagesLoaded().progress(function() {
+                $grid.isotope('layout');
+            });
         });
-    });
-</script>
+    </script>
+@endpush

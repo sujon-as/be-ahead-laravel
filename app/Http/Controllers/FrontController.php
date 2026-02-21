@@ -55,6 +55,10 @@ class FrontController extends Controller
         $awardTitle = AwardTitle::first();
         $awards = Award::get();
 
+        $gallery = Gallery::first();
+        $galleryCategories = GalleryCategory::all();
+        $images = GalleryImage::with('category')->get(); // সব images একবারে load
+
         return view('front.index', compact(
             'sliders',
              'features',
@@ -73,6 +77,7 @@ class FrontController extends Controller
              'volunteers',
              'awardTitle',
              'awards',
+             'images',
         ));
     }
     public function homeGalleryAll()
