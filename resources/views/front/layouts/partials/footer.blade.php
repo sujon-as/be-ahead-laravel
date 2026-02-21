@@ -1,7 +1,7 @@
 <section class="ulockd-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
 					<div class="ulockd-footer-widget">
     					<img alt="" src="{{ ($settings && $settings->logo) ? $settings->logo : asset('front/images/footer-logo.png') }}" class="img-responsive ulockd-footer-log">
     					<p class="ulockd-ftr-text">
@@ -22,6 +22,7 @@
 					</ul>
 				</div>
 
+                <!--
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					<div class="ulockd-footer-lnews">
 						<h3 class="text-uppercase">Latest News</h3>
@@ -72,58 +73,23 @@
 						<div class="twitter"></div>
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+                -->
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
 					<div class="flickr-widget">
 						<h3 class="text-uppercase">Flickr Feed</h3>
 						<ul class="list-inline">
-							<li>
-								<div class="thumb">
-									<img alt="flckr1.jpg" src="{{ asset('front/images/gallery/flckr1.jpg') }}" class="img-responsive img-whp">
-									<div class="overlay">
-										<span class="flaticon-add"></span>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<img alt="" src="{{ asset('front/images/gallery/flckr2.jpg') }}" class="img-responsive img-whp">
-									<div class="overlay">
-										<span class="flaticon-add"></span>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<img alt="" src="{{ asset('front/images/gallery/flckr3.jpg') }}" class="img-responsive img-whp">
-									<div class="overlay">
-										<span class="flaticon-add"></span>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<img alt="" src="{{ asset('front/images/gallery/flckr4.jpg') }}" class="img-responsive img-whp">
-									<div class="overlay">
-										<span class="flaticon-add"></span>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<img alt="" src="{{ asset('front/images/gallery/flckr5.jpg') }}" class="img-responsive img-whp">
-									<div class="overlay">
-										<span class="flaticon-add"></span>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<img alt="" src="{{ asset('front/images/gallery/flckr6.jpg') }}" class="img-responsive img-whp">
-									<div class="overlay">
-										<span class="flaticon-add"></span>
-									</div>
-								</div>
-							</li>
+                            @if(count($images) > 0)
+                                @foreach($images as $image)
+                                    <li>
+                                        <div class="thumb">
+                                            <img alt="flckr1.jpg" src="{{ asset($image->image) }}" class="img-responsive img-whp" style="height: 100px !important;width: 100px !important;">
+                                            <div class="overlay">
+                                                <span class="flaticon-add"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            @endif
 						</ul>
 					</div>
                     <!--

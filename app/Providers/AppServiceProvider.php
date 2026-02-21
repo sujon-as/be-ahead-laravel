@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\GalleryImage;
 use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
 use Blade;
@@ -34,6 +35,11 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $settings = Setting::first();
             $view->with('settings', $settings);
+        });
+
+        View::composer('*', function ($view) {
+            $images = GalleryImage::with('category')->get();
+            $view->with('images', $images);
         });
 
         Blade::directive('toastr', function ($expression){

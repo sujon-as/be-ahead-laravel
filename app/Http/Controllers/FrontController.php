@@ -146,7 +146,9 @@ class FrontController extends Controller
 
     public function donation()
     {
-        return view('front.donation');
+        $causeTitles = CauseTitle::get();
+        $causes = Cause::get();
+        return view('front.donation', compact('causes', 'causeTitles'));
     }
 
     public function faq()
