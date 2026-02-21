@@ -13,6 +13,7 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GalleryImageController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\MissionTitleController;
 use App\Http\Controllers\ProjectController;
@@ -128,6 +129,9 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Appointment
     Route::resource('appointments', AppointmentController::class);
+
+    // Message
+    Route::resource('messages', MessageController::class);
 
 });
 

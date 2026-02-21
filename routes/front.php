@@ -21,6 +21,7 @@ Route::get('/ajax/home-gallery/category/{id}', [FrontController::class, 'homeGal
 
 Route::post('/volunteer-reg', [FrontController::class, 'volunteerReg'])->name('volunteer-reg');
 Route::post('/appointment-submit', [FrontController::class, 'appointmentSubmit'])->name('appointment-submit');
+Route::post('/message-submit', [FrontController::class, 'messageSubmit'])->name('message-submit');
 
 
 

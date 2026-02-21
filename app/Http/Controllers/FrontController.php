@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AppointmentRequest;
+use App\Http\Requests\MessageRequest;
 use App\Http\Requests\VolunteerRequest;
 use App\Models\AboutUs;
 use App\Models\Appointment;
@@ -17,6 +18,7 @@ use App\Models\Feature;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Models\GalleryImage;
+use App\Models\Message;
 use App\Models\Mission;
 use App\Models\MissionTitle;
 use App\Models\Project;
@@ -96,7 +98,8 @@ class FrontController extends Controller
 
     public function contact()
     {
-        return view('front.contact');
+        $awardTitle = AwardTitle::first();
+        return view('front.contact', compact('awardTitle'));
     }
 
     public function causes()
@@ -252,6 +255,45 @@ class FrontController extends Controller
             );
 
             return redirect()->route('appointment')->with($notification);
+        }
+    }
+    public function messageSubmit(MessageRequest $request)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $data = new Message();
+            $data->name = trim($request->name);
+            $data->email = trim($request->email);
+            $data->subject = trim($request->subject);
+            $data->message = trim($request->message);
+            $data->save();
+
+            DB::commit();
+
+            $notification=array(
+                'message' => "Message send Successfully.",
+                'alert-type' => "success",
+            );
+
+            return redirect()->route('contact')->with($notification);
+
+        } catch(Exception $e) {
+            DB::rollback();
+
+            // Log the error
+            Log::error('Error in store: ', [
+                'message' => $e->getMessage(),
+                'code' => $e->getCode(),
+                'line' => $e->getLine()
+            ]);
+
+            $notification=array(
+                'message' => 'Something went wrong!!!',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->route('contact')->with($notification);
         }
     }
 }
