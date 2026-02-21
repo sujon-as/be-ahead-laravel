@@ -282,7 +282,7 @@
 
                 <li class="nav-item
                     {{
-                    (Request::is('award-titles*') || Request::is('projects*')) ? 'menu-open' : ''
+                    (Request::is('award-titles*') || Request::is('awards*')) ? 'menu-open' : ''
                     }}"
                 >
                     <a href="#" class="nav-link">
@@ -305,6 +305,37 @@
                                class="nav-link {{ request()->routeIs('awards.index') ? 'active_nav_menu' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Contents</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item
+                    {{
+                    (Request::is('faq-titles*') || Request::is('faqs*')) ? 'menu-open' : ''
+                    }}"
+                >
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            FAQ
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('faq-titles.index') }}"
+                               class="nav-link {{ request()->routeIs('faq-titles.*') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Title</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('faqs.index') }}"
+                               class="nav-link {{ request()->routeIs('faqs.index') ? 'active_nav_menu' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Questions</p>
                             </a>
                         </li>
 

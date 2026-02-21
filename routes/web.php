@@ -5,6 +5,8 @@ use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AwardTitleController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FaqTitleController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\GalleryController;
@@ -112,6 +114,12 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Awards
     Route::resource('awards', AwardController::class);
+
+    // FAQ Titles
+    Route::resource('faq-titles', FaqTitleController::class);
+
+    // FAQs
+    Route::resource('faqs', FaqController::class);
 
 });
 

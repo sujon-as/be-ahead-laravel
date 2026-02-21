@@ -99,68 +99,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6">
-                    <h2 class="ulockd-mrgn120">Be aHand  <span class="text-thm2">Activity</span></h2>
-                    <div class="ulockd-about-video ulockd-mrgn1225">
-                        <iframe width="100%" height="265px" src="http://www.youtube.com/embed/qKoVto0Wegg?autoplay=0" allowfullscreen=""></iframe>
-                    </div>
+                    {!! $faqTitle->title_2 ?? '' !!}
+                    @if($faqTitle->yt_video_link)
+                        <div class="ulockd-about-video ulockd-mrgn1225">
+                            <iframe width="100%" height="465px" src="{{ $faqTitle->yt_video_link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    @endif
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6">
                    <div class="ulockd-faq-box">
                         <div class="ulockd-faq-title clearfix">
-                            <h2>Frequently Asked  <span class="text-thm2">Questions</span></h2>
+                            {!! $faqTitle->title_1 ?? '' !!}
                         </div>
-                        <div class="ulockd-faq-content">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                          <i class="fa fa-angle-down icon-1"></i>
-                                          <i class="fa fa-angle-up icon-2"></i>
-                                          What is Charity?
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non laboriosam dolores qui unde sequi nulla facilis neque. Molestiae ducimus, ad quam similique, minus nulla sunt pariatur vitae eligendi voluptatem voluptas voluptatibus nisi porro nemo nihil expedita eos repellat nobis delectus blanditiis libero.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingTwo">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <i class="fa fa-angle-down icon-1"></i>
-                                            <i class="fa fa-angle-up icon-2"></i>
-                                            What amount about donation?
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                        <div class="panel-body">
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia sint quos unde, commodi consequuntur quas, error aperiam nemo vitae maiores illum voluptate repudiandae sed assumenda aliquam, ipsum praesentium alias. Itaque illo, rem maiores!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                <i class="fa fa-angle-down icon-1"></i>
-                                                <i class="fa fa-angle-up icon-2"></i>
-                                                About Charity/ Non-profit Organization?
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                        <div class="panel-body">
-                                          <p>Yes. Administrations are accessible for as meager as a couple of hours a visit up to 24 hours, 7 days seven days, 365 days a year.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       @if(count($faqs) > 0)
+                           @include('front.partials.faq-content')
+                       @endif
                    </div>
                 </div>
             </div>

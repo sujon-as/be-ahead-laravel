@@ -8,6 +8,8 @@ use App\Models\Award;
 use App\Models\AwardTitle;
 use App\Models\Cause;
 use App\Models\CauseTitle;
+use App\Models\Faq;
+use App\Models\FaqTitle;
 use App\Models\Feature;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
@@ -125,7 +127,9 @@ class FrontController extends Controller
 
     public function appointment()
     {
-        return view('front.appointment');
+        $faqTitle = FaqTitle::first();
+        $faqs = Faq::get();
+        return view('front.appointment', compact('faqTitle', 'faqs'));
     }
 
     public function donation()
@@ -135,7 +139,9 @@ class FrontController extends Controller
 
     public function faq()
     {
-        return view('front.faq');
+        $faqTitle = FaqTitle::first();
+        $faqs = Faq::get();
+        return view('front.faq', compact('faqTitle', 'faqs'));
     }
 
     public function volunteerReg(VolunteerRequest $request)
