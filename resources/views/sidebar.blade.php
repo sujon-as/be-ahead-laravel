@@ -280,6 +280,24 @@
                     </a>
                 </li>
 
+                <li class="nav-item {{ Request::is('donations') ? 'menu-open' : '' }}">
+                    <a href="{{ route('donations.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Donations
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('volunteer-titles') ? 'menu-open' : '' }}">
+                    <a href="{{ route('volunteer-titles.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Volunteer Titles
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item
                     {{
                     (Request::is('award-titles*') || Request::is('awards*')) ? 'menu-open' : ''

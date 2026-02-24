@@ -7,6 +7,7 @@ use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AwardTitleController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FaqTitleController;
 use App\Http\Controllers\FeatureController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\VolunteerTitleController;
 use App\Http\Controllers\WhyChooseUsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +56,13 @@ Route::get('/clear-cache', function () {
     Artisan::call('optimize');
 
     return 'All caches (config, route, view, optimize) have been cleared!';
+});
+
+Route::get('/migrate', function () {
+    // This runs all pending migrations
+    Artisan::call('migrate', ['--force' => true]);
+
+    return 'Database migrations have been executed successfully!';
 });
 
 Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function () {
@@ -107,6 +116,9 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // Project
     Route::resource('projects', ProjectController::class);
 
+    // Volunteer Title
+    Route::resource('volunteer-titles', VolunteerTitleController::class);
+
     // Volunteers
     Route::resource('volunteers', VolunteerController::class);
     Route::post('volunteer-status-update', [VolunteerController::class, 'volunteerStatusUpdate'])
@@ -132,6 +144,9 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Message
     Route::resource('messages', MessageController::class);
+
+    // Volunteers
+    Route::resource('donations', DonationController::class);
 
 });
 

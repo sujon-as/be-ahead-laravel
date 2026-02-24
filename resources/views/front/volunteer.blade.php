@@ -26,8 +26,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
                     <div class="ulockd-main-title">
-                        <h2 class="text-uppercase">OUR <span class="text-thm2">VOLUNTEERS</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus, hic eaque asperiores saepe aspernatur quibusdam beatae?</p>
+                        {!! $volunteerTitle->title_1 ?? '' !!}
                     </div>
                 </div>
             </div>
@@ -35,15 +34,13 @@
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="ulockd-team-member">
                         <div class="team-thumb">
-                            <img class="img-responsive img-whp" src="{{ asset('front/images/about/4.jpg') }}" alt="4.jpg">
+                            <img class="img-responsive img-whp" src="{{ asset($volunteerTitle->img ?? '') }}" alt="4.jpg" loading="lazy">
                         </div>
                         <div class="team-details text-left">
-                            <p>Consectetur adipisicing elit. Expedita quos quam laboriosam deserunt obcaecati eaque officiis minima tempore blanditiis, dolorem. Provident illo, id culpa, quibusdam ullam quod nobis consectetur, veniam cum, neque vitae delectus in eveniet. Optio sapiente nulla minima aspernatur odit nam facilis perferendis.</p>
-                            <p>Tpsum dolor sit amet, consectetur adipisicing elit. Porro labore, voluptatem assumenda ipsam qui vero molestias, delectus reiciendis repellendus dolor fuga beatae!</p>
-                            <p>Tpsum dolor sit amet, consectetur adipisicing elit. Porro labore, voluptatem assumenda ipsam qui vero molestias, delectus reiciendis repellendus dolor fuga beatae!</p>
+                            {!! $volunteerTitle->title_2 ?? '' !!}
                             <ul class="list-unstyled ulockd-mrgn1220">
-                                <li><h4><span class="flaticon-email-filled-closed-envelope text-thm2"></span> Call Us At: +98 9875 5968 54</h4></li>
-                                <li><h4><span class="flaticon-telephone-1 text-thm2"></span> Mail Us At: yourmail@email.com</h4></li>
+                                <li><h4><span class="flaticon-email-filled-closed-envelope text-thm2"></span> Call Us At: {{ $settings->phone ?? '' }}</h4></li>
+                                <li><h4><span class="flaticon-telephone-1 text-thm2"></span> Mail Us At: {{ $settings->email ?? '' }}</h4></li>
                             </ul>
                         </div>
                     </div>

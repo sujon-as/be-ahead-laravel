@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AppointmentRequest;
+use App\Http\Requests\DonationRequest;
 use App\Http\Requests\MessageRequest;
 use App\Http\Requests\VolunteerRequest;
 use App\Models\AboutUs;
@@ -12,6 +13,7 @@ use App\Models\Award;
 use App\Models\AwardTitle;
 use App\Models\Cause;
 use App\Models\CauseTitle;
+use App\Models\Donation;
 use App\Models\Faq;
 use App\Models\FaqTitle;
 use App\Models\Feature;
@@ -27,6 +29,7 @@ use App\Models\RecentCause;
 use App\Models\RecentCauseTitle;
 use App\Models\Slider;
 use App\Models\Volunteer;
+use App\Models\VolunteerTitle;
 use App\Models\WhyChooseUs;
 use Exception;
 use Illuminate\Http\Request;
@@ -133,7 +136,8 @@ class FrontController extends Controller
 
     public function volunteer()
     {
-        return view('front.volunteer');
+        $volunteerTitle = VolunteerTitle::first();
+        return view('front.volunteer', compact('volunteerTitle'));
     }
 
     public function appointment()
@@ -282,6 +286,63 @@ class FrontController extends Controller
             );
 
             return redirect()->route('contact')->with($notification);
+
+        } catch(Exception $e) {
+            DB::rollback();
+
+            // Log the error
+            Log::error('Error in store: ', [
+                'message' => $e->getMessage(),
+                'code' => $e->getCode(),
+                'line' => $e->getLine()
+            ]);
+
+            $notification=array(
+                'message' => 'Something went wrong!!!',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->route('contact')->with($notification);
+        }
+    }
+    public function donationSubmit(DonationRequest $request)
+    {
+        DB::beginTransaction();
+        try
+        {
+            // Handle file upload
+            $filePath = null;
+            if ($request->hasFile('img')) {
+                $filePath = storeFile(
+                    $request->file('img'),
+                    'dss_images',
+                    'dssImage_'
+                );
+            }
+
+            $data = new Donation();
+            $data->amount    = $request->amount;
+            $data->pts       = trim($request->pts);
+            $data->f_name    = trim($request->f_name);
+            $data->l_name    = trim($request->l_name);
+            $data->email     = trim($request->email);
+            $data->phone     = trim($request->phone);
+            $data->address_1 = trim($request->address_1);
+            $data->address_2 = trim($request->address_2);
+            $data->city      = trim($request->city);
+            $data->zip       = trim($request->zip);
+            $data->note      = trim($request->note);
+            $data->img       = $filePath;
+            $data->save();
+
+            DB::commit();
+
+            $notification=array(
+                'message' => "Donation send Successfully.",
+                'alert-type' => "success",
+            );
+
+            return redirect()->route('donation')->with($notification);
 
         } catch(Exception $e) {
             DB::rollback();
