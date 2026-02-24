@@ -1,6 +1,6 @@
-<meta name="description" content="Be aHand Charity Foundation, Fundraise And Donation HTML Template"/>
-<meta name="keywords" content="Causes, charity, charity agency, charity html template, church, donation, food, foundation, help, ngo, non-profit organization, organization, social, volunteer, welfare">
-<meta name="author" content="unlockdesign">
+<meta name="description" content="{{ $settings->site_name }}"/>
+<meta name="keywords" content="{{ $settings->site_name }}">
+<meta name="author" content="{{ $settings->site_name }}">
 <!-- css file -->
 <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front/css/all-plugins.css') }}">
@@ -9,10 +9,10 @@
 <!-- Responsive stylesheet -->
 <link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
 <!-- Title -->
-<title>Be aHand Charity Foundation, Fundraise And Donation HTML Template</title>
+<title>{{ $settings->site_name }}</title>
 <!-- Favicon -->
-<link href="{{ asset('front/images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
-<link href="{{ asset('front/images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />
+<link href="{{ asset($settings->favicon) }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+<link href="{{ asset($settings->favicon) }}" sizes="128x128" rel="shortcut icon" />
 <link rel="stylesheet" href="{{ asset('front/css/toastr.min.css') }}">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
