@@ -30,7 +30,7 @@ class CauseRequest extends FormRequest
         $data = $this->route('front-cause');
         $id = $data?->id ?? null;
 
-        if ($routeName === 'front-causes.store') {
+        if ($routeName === 'front-causes.update') {
             return Cause::updateRules();
         }
 

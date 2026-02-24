@@ -16,7 +16,11 @@
                             <div class="donate-button"><a href="{{ route('donation') }}" class="btn ulockd-btn-thm2" data-toggle="modal" data-target=".bs-example-modal-default">Donate now</a></div>
                         </div>
                         <div class="col-sm-8 col-md-4 pb-details">
-                            {!! $project->description !!}
+{{--                            {!! $project->description !!}--}}
+                            {{ $project->short_content }}
+                            @if(strlen($project->plain_content) > 100)
+                                <a href="{{ route('project.details', $project->id) }}" class="read-more" style="color: green !important;">Read more</a>
+                            @endif
                         </div>
                     </div>
                 @endforeach

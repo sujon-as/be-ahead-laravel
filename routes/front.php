@@ -24,5 +24,14 @@ Route::post('/appointment-submit', [FrontController::class, 'appointmentSubmit']
 Route::post('/message-submit', [FrontController::class, 'messageSubmit'])->name('message-submit');
 Route::post('/donation-submit', [FrontController::class, 'donationSubmit'])->name('donation-submit');
 
+Route::get('/cause/{id}', [FrontController::class, 'causeDetails'])
+    ->name('cause.details');
+
+Route::get('/recentCause/{id}', [FrontController::class, 'recentCauseDetails'])
+    ->name('recentCause.details');
+
+Route::get('/project/{id}', [FrontController::class, 'projectDetails'])
+    ->name('project.details');
+
 
 

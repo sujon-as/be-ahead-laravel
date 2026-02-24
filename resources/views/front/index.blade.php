@@ -16,8 +16,8 @@
 	<!-- Our Features end -->
 
 	<!-- Our Causes -->
-    @if(count($causes) > 0)
 {{--        @include('front.partials.home-causes')--}}
+    @if(count($causes) > 0)
         @include('front.partials.home-causes-2')
     @endif
 
@@ -55,7 +55,7 @@
 {{--    @include('front.partials.home-newsletter')--}}
 
 	<!-- Our Team -->
-    @if($projectTitle && count($volunteers) > 0)
+    @if(count($volunteers) > 0)
         @include('front.partials.home-team')
     @endif
 

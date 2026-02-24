@@ -42,7 +42,7 @@
                                 <div class="team-details text-left">
                                     <h3 class="member-name">{{ $volunteer->f_name }} {{ $volunteer->l_name }}</h3>
                                     <h5 class="member-post">- Volunteer</h5>
-                                    <p>Lorem ipsum dolor sit amet, esse consectetur adipisicing elit.</p>
+                                    <p>Your Attention Is Changed The Part Of World.Give a helping hand to those who need it!</p>
 {{--                                    <button type="submit" class="btn btn-default ulockd-btn-thm2">Read More</button>--}}
                                 </div>
                             </div>

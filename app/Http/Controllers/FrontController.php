@@ -60,7 +60,8 @@ class FrontController extends Controller
 
         $gallery = Gallery::first();
         $galleryCategories = GalleryCategory::all();
-        $images = GalleryImage::with('category')->get(); // সব images একবারে load
+        $images = GalleryImage::with('category')->get();
+//        dd($projects);
 
         return view('front.index', compact(
             'sliders',
@@ -361,5 +362,23 @@ class FrontController extends Controller
 
             return redirect()->route('contact')->with($notification);
         }
+    }
+    public function causeDetails($id)
+    {
+        $cause = Cause::findOrFail($id);
+
+        return view('front.cause-details', compact('cause'));
+    }
+    public function recentCauseDetails($id)
+    {
+        $cause = RecentCause::findOrFail($id);
+
+        return view('front.recent-cause-details', compact('cause'));
+    }
+    public function projectDetails($id)
+    {
+        $cause = Project::findOrFail($id);
+
+        return view('front.project-details', compact('cause'));
     }
 }

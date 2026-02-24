@@ -12,40 +12,46 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-12">
-                <div class="row">
-                    @foreach($causes as $key => $cause)
-                        <div class="col-sm-6 col-md-6 col-lg-3 fservice-box ulockd-pad395">
-                            <div class="db-thumb">
-                                <img class="img-responsive img-whp" src="{{ asset($cause->img) }}" alt="" loading="lazy">
-                                <div class="db-overlayer"></div>
-                            </div>
-                            <div class="db-details text-left">
-                                <div class="progress-levels ulockd-mrgn1210">
-                                    <div class="progress-box wow" data-wow-delay="{{ ($key + 1) * 100 }}ms" data-wow-duration="1500ms">
-                                        <div class="inner">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill ulockd-bgthm" data-percent="{{ $cause->percentage }}"><div class="percent"></div></div>
+                @foreach($causes->chunk(4) as $chunk)
+                    <div class="row">
+                        @foreach($chunk as $key => $cause)
+                                <div class="col-sm-6 col-md-6 col-lg-3 fservice-box ulockd-pad395">
+                                    <div class="db-thumb">
+                                        <img class="img-responsive img-whp" src="{{ asset($cause->img) }}" alt="" loading="lazy">
+                                        <div class="db-overlayer"></div>
+                                    </div>
+                                    <div class="db-details text-left">
+                                        <div class="progress-levels ulockd-mrgn1210">
+                                            <div class="progress-box wow" data-wow-delay="{{ ($key + 1) * 100 }}ms" data-wow-duration="1500ms">
+                                                <div class="inner">
+                                                    <div class="bar">
+                                                        <div class="bar-innner">
+                                                            <div class="bar-fill ulockd-bgthm" data-percent="{{ $cause->percentage }}"><div class="percent"></div></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+{{--                                        {!! $cause->content !!}--}}
+                                        {{ $cause->short_content }}
+                                        @if(strlen($cause->plain_content) > 100)
+                                            <a href="{{ route('cause.details', $cause->id) }}" class="read-more" style="color: green !important;">Read more</a>
+                                        @endif
+                                        <ul class="list-inline">
+                                            <li>
+                                                <a
+                                                    href="{{ route('donation') }}"
+                                                    type="button"
+                                                    class="btn btn-default ulockd-btn-thm2">
+                                                    Donate now
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                {!! $cause->content !!}
-                                <ul class="list-inline">
-                                    <li>
-                                        <a
-                                            href="{{ route('donation') }}"
-                                            type="button"
-                                            class="btn btn-default ulockd-btn-thm2">
-                                            Donate now
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+                            @endforeach
+                    </div>
+                @endforeach
             </div>
             <!--
             <div class="col-sm-6 col-md-4 rs-smd-pad395">

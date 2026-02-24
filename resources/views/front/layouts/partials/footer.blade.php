@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
 					<div class="ulockd-footer-widget">
-    					<img alt="" src="{{ ($settings && $settings->logo) ? $settings->logo : asset('front/images/footer-logo.png') }}" class="img-responsive ulockd-footer-log">
+    					<img  style="width: 100px !important;" alt="" src="{{ ($settings && $settings->logo) ? $settings->logo : asset('front/images/footer-logo.png') }}" class="img-responsive ulockd-footer-log">
     					<p class="ulockd-ftr-text">
                             {{ ($settings && $settings->footer_txt) ? $settings->footer_txt : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo. Donec nec eros eget nisl fringilla commodo.' }}
                         </p>

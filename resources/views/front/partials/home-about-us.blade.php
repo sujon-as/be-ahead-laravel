@@ -5,7 +5,9 @@
                 <div class="ulock-about">
                     {!! $aboutUs->title !!}
                     {!! $aboutUs->description !!}
-                    <button type="submit" class="btn btn-default ulockd-btn-thm2">Read More</button>
+                    <a href="{{ route('about') }}">
+                        <button type="button" class="btn btn-default ulockd-btn-thm2">Read More</button>
+                    </a>
                 </div>
             </div>
             <div class="col-sm-12 col-md-5">

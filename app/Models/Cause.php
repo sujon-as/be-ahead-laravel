@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Cause extends Model
 {
@@ -29,5 +30,13 @@ class Cause extends Model
         ];
 
         return $rules;
+    }
+    public function getShortContentAttribute()
+    {
+        return Str::limit(strip_tags($this->content), 100, '...');
+    }
+    public function getPlainContentAttribute()
+    {
+        return strip_tags($this->content);
     }
 }

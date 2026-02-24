@@ -105,7 +105,7 @@
   		<div class="container">
   			<div class="row">
   				<div class="col-xs-12 col-sm-6 col-lg-3 col-lg-3">
-  					<div class="ulockd-welcm-hmddl">
+  					<div class="ulockd-welcm-hmddl" style="width: 100px !important;">
 						<a href="{{ route('home') }}" class="ulockd-main-logo">
                             <img src="{{ ($settings && $settings->logo)
                                 ? $settings->logo
