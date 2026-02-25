@@ -71,9 +71,14 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="content">Recent Causes Title 2 <span class="required">*</span></label>
-                                    <textarea class="form-control description" required="" name="content">
-                                    {!! old('content', $front_recent_cause->content) !!}
-                                </textarea>
+                                    <textarea
+                                        class="form-control"
+                                        required=""
+                                        name="content"
+                                        cols="4"
+                                        rows="4"
+                                        id="content"
+                                        placeholder="Recent Causes Title 2">{{ old('content', $front_recent_cause->content) }}</textarea>
                                     @error('content')
                                     <span class="alert alert-danger">{{ $message }}</span>
                                     @enderror

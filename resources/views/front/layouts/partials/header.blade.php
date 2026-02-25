@@ -1,4 +1,24 @@
-  	<div class="header-topped">
+<style>
+    .desktop-width {
+        width: 100px !important;
+    }
+    /* Mobile center */
+    @media (max-width: 767px) {
+        .logo-wrapper {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .center-logo {
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .desktop-width {
+            width: 100% !important;
+        }
+    }
+</style>
+<div class="header-topped">
   		<div class="container">
   			<div class="row">
   				<div class="col-md-4">
@@ -104,12 +124,13 @@
   	<div class="header-middle">
   		<div class="container">
   			<div class="row">
-  				<div class="col-xs-12 col-sm-6 col-lg-3 col-lg-3">
-  					<div class="ulockd-welcm-hmddl" style="width: 100px !important;">
+  				<div class="col-xs-12 col-sm-6 col-lg-3 col-lg-3 text-center text-lg-start">
+  					<div class="ulockd-welcm-hmddl desktop-width" >
 						<a href="{{ route('home') }}" class="ulockd-main-logo">
                             <img src="{{ ($settings && $settings->logo)
-                                ? $settings->logo
-                                : asset('front/images/header-logo.png') }}" alt="">
+                                ? asset($settings->logo)
+                                : asset('front/images/header-logo.png') }}" alt=""
+                                 class="img-responsive center-logo">
                         </a>
   					</div>
   				</div>

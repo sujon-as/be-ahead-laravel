@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-        @foreach($projects->chunk(4) as $chunk)
+        @foreach($volunteers->chunk(4) as $chunk)
             <div class="row">
             @foreach($chunk as $volunteer)
                 <div class="col-xs-12 col-sm-6 col-md-3">
