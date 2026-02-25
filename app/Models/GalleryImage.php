@@ -25,6 +25,16 @@ class GalleryImage extends Model
 
         return $rules;
     }
+    public static function updateRules()
+    {
+        $rules = [
+            'title' => 'required|string|max:255',
+            'gallery_category_id' => 'required|integer|exists:gallery_categories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        ];
+
+        return $rules;
+    }
     public function category() : BelongsTo
     {
         return $this->belongsTo(GalleryCategory::class, 'gallery_category_id');

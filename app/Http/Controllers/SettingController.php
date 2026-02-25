@@ -38,6 +38,8 @@ class SettingController extends Controller
                 'instagram'      => $data ? $data->instagram : null,
                 'logo'           => $data ? $data->logo : null,
                 'fav_icon'       => $data ? $data->fav_icon : null,
+                'map'       => $data ? $data->map : null,
+                'linkedin'       => $data ? $data->linkedin : null,
             ];
 
             // File upload
@@ -64,6 +66,8 @@ class SettingController extends Controller
                 'google_plus'   => $request->google_plus ?? $defaults['google_plus'],
                 'pinterest'     => $request->pinterest ?? $defaults['pinterest'],
                 'instagram'     => $request->instagram ?? $defaults['instagram'],
+                'map'     => $request->map ?? $defaults['map'],
+                'linkedin'     => $request->linkedin ?? $defaults['linkedin'],
                 'logo'          => $logoPath,
                 'fav_icon'      => $favIconPath,
             ];

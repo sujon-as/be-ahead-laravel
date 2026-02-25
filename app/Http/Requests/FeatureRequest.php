@@ -30,6 +30,10 @@ class FeatureRequest extends FormRequest
         $data = $this->route('feature');
         $id = $data?->id ?? null;
 
+        if ($routeName === 'features.update') {
+            return Feature::updateRules();
+        }
+
         if ($routeName === 'feature-status-update') {
             return Feature::featureStausUpdateRules();
         }

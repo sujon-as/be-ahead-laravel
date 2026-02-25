@@ -180,6 +180,30 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="map">Map <span class="required">*</span></label>
+                                <input type="text" name="map" class="form-control" id="map"
+                                       placeholder="Map"
+                                       value="{{old('map', ($setting && $setting->map) ? $setting->map : "")}}">
+                                @error('map')
+                                <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="linkedin">Linkedin <span class="required">*</span></label>
+                                <input type="text" name="linkedin" class="form-control" id="linkedin"
+                                       placeholder="Linkedin"
+                                       value="{{old('linkedin', ($setting && $setting->linkedin) ? $setting->linkedin : "")}}">
+                                @error('linkedin')
+                                <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">

@@ -30,6 +30,10 @@ class SliderRequest extends FormRequest
         $data = $this->route('slider');
         $id = $data?->id ?? null;
 
+        if ($routeName === 'sliders.update') {
+            return Slider::updateRules();
+        }
+
         if ($routeName === 'slider-status-update') {
             return Slider::serviceStausUpdateRules();
         }

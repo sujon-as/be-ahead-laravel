@@ -10,8 +10,12 @@
                                     <h1>{{ ($slider && $slider->title_1) ? $slider->title_1 : 'Be aHand' }}</h1>
                                     <h2>{{ ($slider && $slider->title_2) ? $slider->title_2 : 'Be aHand' }}</h2>
                                     <h4>{{ ($slider && $slider->title_3) ? $slider->title_3 : 'Be aHand' }}</h4>
+                                    @if(($key + 1)  % 2 === 0)
+                                        <a href="{{ route('contact') }}" class="cd-btn btn btn btn-default ulockd-btn-styledark">Contact Us</a>
+                                    @else
+                                        <a href="{{ route('contact') }}" class="cd-btn btn btn-default ulockd-btn-styledark">Mission</a>
+                                    @endif
                                     <a href="{{ route('about') }}" class="cd-btn btn btn-default ulockd-btn-thm2">About Us</a>
-                                    <a href="{{ route('contact') }}" class="cd-btn btn btn-default ulockd-btn-styledark">Contact Us</a>
                                 </div> <!-- .cd-full-width -->
                             </li>
                         @endforeach

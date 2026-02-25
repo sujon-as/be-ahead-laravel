@@ -62,9 +62,7 @@
                             rows="4"
                             required="required"
                             data-error="Message is required."
-                        >
-
-                        </textarea>
+                        ></textarea>
                         @error('message')
                         <span class="alert alert-danger">{{ $message }}</span>
                         @enderror

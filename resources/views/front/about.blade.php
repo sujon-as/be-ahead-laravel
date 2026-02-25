@@ -29,9 +29,9 @@
                         <div class="ulock-about">
                             {!! $aboutUs->title !!}
                             {!! $aboutUs->description !!}
-                            <a href="{{ route('donation') }}">
-                                <button type="button" class="btn btn-default ulockd-btn-thm2">Donate</button>
-                            </a>
+{{--                            <a href="{{ route('donation') }}">--}}
+{{--                                <button type="button" class="btn btn-default ulockd-btn-thm2">Donate</button>--}}
+{{--                            </a>--}}
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-5">

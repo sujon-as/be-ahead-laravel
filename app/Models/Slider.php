@@ -30,6 +30,19 @@ class Slider extends Model
 
         return $rules;
     }
+    public static function updateRules($id = null)
+    {
+        $rules = [
+            'title_1'    => 'required|string|max:255',
+            'title_2'    => 'required|string|max:255',
+            'title_3'    => 'required|string|max:255',
+            'bg_img'     => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'marker_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status'     => 'required|in:Active,Inactive',
+        ];
+
+        return $rules;
+    }
     public static function serviceStausUpdateRules()
     {
         $rules = [

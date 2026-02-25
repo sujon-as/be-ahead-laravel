@@ -19,6 +19,7 @@
 						<li><a href="{{ ($settings && $settings->google_plus) ? $settings->google_plus : '#' }}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
 						<li><a href="{{ ($settings && $settings->pinterest) ? $settings->pinterest : '#' }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
 						<li><a href="{{ ($settings && $settings->instagram) ? $settings->instagram : '#' }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="{{ ($settings && $settings->linkedin) ? $settings->linkedin : '#' }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 					</ul>
 				</div>
 

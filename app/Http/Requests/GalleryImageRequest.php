@@ -30,9 +30,9 @@ class GalleryImageRequest extends FormRequest
         $data = $this->route('slider');
         $id = $data?->id ?? null;
 
-//        if ($routeName === 'gallery-images.update') {
-//            return GalleryImage::updateRules();
-//        }
+        if ($routeName === 'gallery-images.update') {
+            return GalleryImage::updateRules();
+        }
 
         return GalleryImage::rules($id);
     }
