@@ -1,7 +1,7 @@
 <section class="ulockd-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
 					<div class="ulockd-footer-widget">
     					<img  style="width: 100px !important;" alt="" src="{{ ($settings && $settings->logo) ? $settings->logo : asset('front/images/footer-logo.png') }}" class="img-responsive ulockd-footer-log">
     					<p class="ulockd-ftr-text">
@@ -22,6 +22,12 @@
 						<li><a href="{{ ($settings && $settings->linkedin) ? $settings->linkedin : '#' }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 					</ul>
 				</div>
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+                    @if(!empty($settings->google_map))
+                        {!! $settings->google_map !!}
+                    @endif
+                </div>
 
                 <!--
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -75,7 +81,7 @@
 					</div>
 				</div>
                 -->
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
 					<div class="flickr-widget">
 						<h3 class="text-uppercase">Flickr Feed</h3>
 						<ul class="list-inline">

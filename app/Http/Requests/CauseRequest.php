@@ -34,6 +34,14 @@ class CauseRequest extends FormRequest
             return Cause::updateRules();
         }
 
+        if ($routeName === 'cause-status-update') {
+            return Cause::causeStausUpdateRules();
+        }
+
+        if ($routeName === 'rcause-status-update') {
+            return Cause::rCauseStausUpdateRules();
+        }
+
         return Cause::rules($id);
     }
 }
