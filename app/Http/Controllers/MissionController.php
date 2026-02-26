@@ -25,8 +25,16 @@ class MissionController extends Controller
             return DataTables::of($sliders)
                 ->addIndexColumn()
 
+                ->addColumn('title', function ($row) {
+                    return $row->title ?? 'N/A';
+                })
+
                 ->addColumn('description', function ($row) {
                     return strip_tags($row->description) ?? 'N/A';
+                })
+
+                ->addColumn('status', function($row){
+                    return '<label class="switch"><input class="' . ($row->status === 'Active' ? 'active-data' : 'decline-data') . '" id="status-update"  type="checkbox" ' . ($row->status === 'Active' ? 'checked' : '') . ' data-id="'.$row->id.'"><span class="slider round"></span></label>';
                 })
 
                 ->addColumn('action', function($row){
@@ -47,12 +55,12 @@ class MissionController extends Controller
                     if ($request->has('search') && $request->search['value'] != '') {
                         $searchValue = $request->search['value'];
                         $query->where(function($q) use ($searchValue) {
-                            $q->where('description', 'like', "%{$searchValue}%")
+                            $q->where('title', 'like', "%{$searchValue}%")
                                 ->orWhere('description', 'like', "%{$searchValue}%");
                         });
                     }
                 })
-                ->rawColumns(['description', 'action'])
+                ->rawColumns(['title', 'description', 'status', 'action'])
                 ->make(true);
         }
 
@@ -68,6 +76,7 @@ class MissionController extends Controller
         try
         {
             $data = new Mission();
+            $data->title = $request->title;
             $data->description = $request->description;
             $data->save();
 
@@ -110,6 +119,7 @@ class MissionController extends Controller
     {
         try
         {
+            $mission->title = $request->title;
             $mission->description = $request->description;
             $mission->update();
 
@@ -157,6 +167,36 @@ class MissionController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => 'Something went wrong!!!'
+            ]);
+        }
+    }
+    public function missionStatusUpdate(Request $request)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $data = Mission::findorfail($request->id);
+            $data->status = $request->status;
+            $data->update();
+
+            DB::commit();
+
+            return response()->json([
+                'status' => true,
+                'message' => "Mission status updated successfully."
+            ]);
+        } catch(Exception $e) {
+            DB::rollBack();
+            // Log the error
+            Log::error('Error in updating status: ', [
+                'message' => $e->getMessage(),
+                'code' => $e->getCode(),
+                'line' => $e->getLine()
+            ]);
+
+            return response()->json([
+                'status' => false,
+                'message' => "Something went wrong!!!"
             ]);
         }
     }

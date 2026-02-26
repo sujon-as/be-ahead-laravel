@@ -10,13 +10,14 @@ class Cause extends Model
 {
     use HasFactory;
     protected $table = 'causes';
-    protected $fillable = ['percentage', 'content', 'img'];
+    protected $fillable = ['percentage', 'content', 'img', 'status'];
     public static function rules($id = null)
     {
         $rules = [
             'img'    => 'required|image|mimes:jpg,jpeg,png,webp',
             'percentage'    => 'required|string',
             'content'    => 'required|string',
+            'status'    => 'nullable|in:Active,Inactive',
         ];
 
         return $rules;
@@ -27,6 +28,25 @@ class Cause extends Model
             'img'    => 'nullable|image|mimes:jpg,jpeg,png,webp',
             'percentage'    => 'required|string',
             'content'    => 'required|string',
+            'status'    => 'nullable|in:Active,Inactive',
+        ];
+
+        return $rules;
+    }
+    public static function causeStausUpdateRules()
+    {
+        $rules = [
+            'id' => 'required|string|exists:causes,id',
+            'status' => 'required|in:Active,Inactive',
+        ];
+
+        return $rules;
+    }
+    public static function rCauseStausUpdateRules()
+    {
+        $rules = [
+            'id' => 'required|string|exists:recent_causes,id',
+            'status' => 'required|in:Active,Inactive',
         ];
 
         return $rules;

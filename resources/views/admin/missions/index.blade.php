@@ -31,7 +31,9 @@
                     <table id="table-data" class="table table-bordered table-striped data-table">
                         <thead>
                             <tr>
+                                <th>Title</th>
                                 <th>Content</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -62,7 +64,9 @@
                 },
 
                 columns: [
+                    {data: 'title', name: 'title'},
                     {data: 'description', name: 'description'},
+                    {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
@@ -100,7 +104,7 @@
                 var status_val = isDataChecked ? 'Active' : 'Inactive';
                 $.ajax({
 
-                    url: "{{ url('/slider-status-update') }}",
+                    url: "{{ url('/mission-status-update') }}",
 
                     type: "POST",
                     data:{ 'id': id, 'status': status_val },

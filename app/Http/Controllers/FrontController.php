@@ -11,6 +11,7 @@ use App\Models\Appointment;
 use App\Models\AppointmentTitle;
 use App\Models\Award;
 use App\Models\AwardTitle;
+use App\Models\Blog;
 use App\Models\Cause;
 use App\Models\CauseTitle;
 use App\Models\Donation;
@@ -23,11 +24,14 @@ use App\Models\GalleryImage;
 use App\Models\Message;
 use App\Models\Mission;
 use App\Models\MissionTitle;
+use App\Models\News;
 use App\Models\Project;
 use App\Models\ProjectTitle;
 use App\Models\RecentCause;
 use App\Models\RecentCauseTitle;
 use App\Models\Slider;
+use App\Models\Team;
+use App\Models\Vision;
 use App\Models\Volunteer;
 use App\Models\VolunteerTitle;
 use App\Models\WhyChooseUs;
@@ -43,20 +47,21 @@ class FrontController extends Controller
         $sliders = Slider::where('status', 'Active')->get();
         $features = Feature::where('status', 'Active')->get();
         $causeTitles = CauseTitle::get();
-        $causes = Cause::get();
+        $causes = Cause::where('status', 'Active')->get();
         $recentCauseTitles = RecentCauseTitle::first();
-        $recentCauses = RecentCause::get();
+        $recentCauses = RecentCause::where('status', 'Active')->get();
         $whyChooseUs = WhyChooseUs::first();
         $aboutUs = AboutUs::first();
-        $gallery = Gallery::first();
-        $galleryCategories = GalleryCategory::get();
+//        $gallery = Gallery::first();
+//        $galleryCategories = GalleryCategory::get();
         $missionTitle = MissionTitle::first();
-        $missions = Mission::get();
+        $missions = Mission::where('status', 'Active')->get();
         $projectTitle = ProjectTitle::first();
         $projects = Project::get();
         $volunteers = Volunteer::where('status', 'Active')->get();
         $awardTitle = AwardTitle::first();
         $awards = Award::get();
+        $vision = Vision::first();
 
         $gallery = Gallery::first();
         $galleryCategories = GalleryCategory::all();
@@ -81,6 +86,7 @@ class FrontController extends Controller
              'volunteers',
              'awardTitle',
              'awards',
+             'vision',
              'images',
         ));
     }
@@ -131,8 +137,8 @@ class FrontController extends Controller
 
     public function team()
     {
-        $volunteers = Volunteer::where('status', 'Active')->get();
-        return view('front.team', compact('volunteers'));
+        $teams = Team::where('status', 'Active')->get();
+        return view('front.team', compact('teams'));
     }
 
     public function volunteer()
@@ -169,6 +175,18 @@ class FrontController extends Controller
         $faqTitle = FaqTitle::first();
         $faqs = Faq::get();
         return view('front.faq', compact('faqTitle', 'faqs'));
+    }
+
+    public function blog()
+    {
+        $blogs = Blog::where('status', 'Active')->get();
+        return view('front.blog', compact('blogs'));
+    }
+
+    public function news()
+    {
+        $news = News::where('status', 'Active')->get();
+        return view('front.news', compact('news'));
     }
 
     public function volunteerReg(VolunteerRequest $request)
@@ -380,5 +398,35 @@ class FrontController extends Controller
         $cause = Project::findOrFail($id);
 
         return view('front.project-details', compact('cause'));
+    }
+    public function missionDetails($id)
+    {
+        $cause = Mission::findOrFail($id);
+
+        return view('front.mission-details', compact('cause'));
+    }
+    public function teamDetails($id)
+    {
+        $cause = Team::findOrFail($id);
+
+        return view('front.team-details', compact('cause'));
+    }
+    public function visionDetails()
+    {
+        $cause = Vision::first();
+
+        return view('front.vision-details', compact('cause'));
+    }
+    public function blogDetails($id)
+    {
+        $cause = Blog::findOrFail($id);
+
+        return view('front.blog-details', compact('cause'));
+    }
+    public function newsDetails($id)
+    {
+        $cause = News::findOrFail($id);
+
+        return view('front.news-details', compact('cause'));
     }
 }

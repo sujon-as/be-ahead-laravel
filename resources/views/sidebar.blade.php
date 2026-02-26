@@ -171,6 +171,42 @@
                     </a>
                 </li>
 
+                <li class="nav-item {{ Request::is('visions*') ? 'menu-open' : '' }}">
+                <a href="{{ route('visions.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Vision
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('blogs*') ? 'menu-open' : '' }}">
+                <a href="{{ route('blogs.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Blog
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('news*') ? 'menu-open' : '' }}">
+                    <a href="{{ route('news.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            News
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('teams*') ? 'menu-open' : '' }}">
+                <a href="{{ route('teams.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Team
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item
                     {{
                     (Request::is('galleries*') || Request::is('gallery-categories*') || Request::is('gallery-images*')) ? 'menu-open' : ''

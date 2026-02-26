@@ -183,11 +183,9 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="map">Map <span class="required">*</span></label>
-                                <input type="text" name="map" class="form-control" id="map"
-                                       placeholder="Map"
-                                       value="{{old('map', ($setting && $setting->map) ? $setting->map : "")}}">
-                                @error('map')
+                                <label for="google_map">Google Map Embed Code<span class="required">*</span></label>
+                                <textarea name="google_map" class="form-control" rows="4">{{ old('google_map', $settings->google_map ?? '') }}</textarea>
+                                @error('google_map')
                                 <span class="alert alert-danger">{{ $message }}</span>
                                 @enderror
                             </div>
