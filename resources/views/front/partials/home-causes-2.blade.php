@@ -7,6 +7,7 @@
                         {!! $causeTitles[0]->title_1 !!}
                         {!! $causeTitles[0]->title_2 !!}
                     </div>
+                    <h2>Causes</h2>
                 </div>
             @endif
         </div>

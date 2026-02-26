@@ -14,7 +14,13 @@
                         <div class="ulockd-mssn-col ulockd-mrgn650">
                             {{--                    <div class="missn-icon"><span class="flaticon-rice"></span></div>--}}
                             <div class="missn-details">
-                                {!! $mission->description ?? '' !!}
+{{--                                {!! $mission->description ?? '' !!}--}}
+                                <h3>{{ $mission->title ?? ''  }}</h3>
+                                <p>{{ $mission->short_content ?? '' }}</p>
+{{--                                {{ $project }}--}}
+                                @if(strlen($mission->plain_content) > 100)
+                                    <a href="{{ route('mission.details', $mission->id) }}" class="read-more" style="color: green !important;">Read more</a>
+                                @endif
                             </div>
                         </div>
                     </div>

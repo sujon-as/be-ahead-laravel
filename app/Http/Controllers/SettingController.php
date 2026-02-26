@@ -38,7 +38,7 @@ class SettingController extends Controller
                 'instagram'      => $data ? $data->instagram : null,
                 'logo'           => $data ? $data->logo : null,
                 'fav_icon'       => $data ? $data->fav_icon : null,
-                'map'       => $data ? $data->map : null,
+                'google_map'       => $data ? $data->google_map : null,
                 'linkedin'       => $data ? $data->linkedin : null,
             ];
 
@@ -66,7 +66,7 @@ class SettingController extends Controller
                 'google_plus'   => $request->google_plus ?? $defaults['google_plus'],
                 'pinterest'     => $request->pinterest ?? $defaults['pinterest'],
                 'instagram'     => $request->instagram ?? $defaults['instagram'],
-                'map'     => $request->map ?? $defaults['map'],
+                'google_map'     => $request->google_map ?? $defaults['google_map'],
                 'linkedin'     => $request->linkedin ?? $defaults['linkedin'],
                 'logo'          => $logoPath,
                 'fav_icon'      => $favIconPath,

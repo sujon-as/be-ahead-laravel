@@ -6,6 +6,7 @@
                     {!! $recentCauseTitles->title_1 !!}
                     {!! $recentCauseTitles->title_2 !!}
                 </div>
+                <h2>Recent Causes</h2>
             </div>
         </div>
         @foreach($recentCauses->chunk(4) as $chunk)

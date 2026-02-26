@@ -24,7 +24,7 @@ class Setting extends Model
         'phone',
         'footer_txt',
         'copyright_mgs',
-        'map',
+        'google_map',
         'linkedin',
     ];
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AppointmentTitleController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AwardTitleController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\CauseTitleController;
 use App\Http\Controllers\DonationController;
@@ -17,12 +18,15 @@ use App\Http\Controllers\GalleryImageController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\MissionTitleController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTitleController;
 use App\Http\Controllers\RecentCauseController;
 use App\Http\Controllers\RecentCauseTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\VisionController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\VolunteerTitleController;
 use App\Http\Controllers\WhyChooseUsController;
@@ -84,10 +88,13 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
     // Causes
     Route::resource('front-causes', CauseController::class);
     Route::resource('cause-titles', CauseTitleController::class);
+    Route::post('cause-status-update', [CauseController::class, 'causeStatusUpdate'])->name('cause-status-update');
 
     // Recent Causes
     Route::resource('recent-cause-titles', RecentCauseTitleController::class);
     Route::resource('front-recent-causes', RecentCauseController::class);
+    Route::post('rcause-status-update', [RecentCauseController::class, 'rCauseStatusUpdate'])
+        ->name('rcause-status-update');
 
     // Why Choose Us
     Route::resource('why-choose-us', WhyChooseUsController::class);
@@ -109,6 +116,8 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Mission
     Route::resource('missions', MissionController::class);
+    Route::post('mission-status-update', [MissionController::class, 'missionStatusUpdate'])
+        ->name('mission-status-update');
 
     // Project Titles
     Route::resource('project-titles', ProjectTitleController::class);
@@ -147,6 +156,24 @@ Route::group(['middleware' => ['prevent-back-history', 'admin_auth']], function 
 
     // Volunteers
     Route::resource('donations', DonationController::class);
+
+    // Volunteers
+    Route::resource('visions', VisionController::class);
+
+    // Volunteers
+    Route::resource('teams', TeamController::class);
+    Route::post('team-status-update', [TeamController::class, 'teamStatusUpdate'])
+        ->name('team-status-update');
+
+    // Volunteers
+    Route::resource('blogs', BlogController::class);
+    Route::post('blog-status-update', [BlogController::class, 'blogStatusUpdate'])
+        ->name('blog-status-update');
+
+    // Volunteers
+    Route::resource('news', NewsController::class);
+    Route::post('news-status-update', [NewsController::class, 'newsStatusUpdate'])
+        ->name('news-status-update');
 
 });
 

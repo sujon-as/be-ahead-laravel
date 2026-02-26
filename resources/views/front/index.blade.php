@@ -43,12 +43,23 @@
 
 	<!-- Our Service -->
     @if($missionTitle && count($missions) > 0)
+        <div id="mission">
         @include('front.partials.home-services')
+        </div>
+    @endif
+
+    <!-- Our Vision -->
+    @if($vision)
+        <div id="vision">
+        @include('front.partials.home-vision')
+        </div>
     @endif
 
 	<!-- Our Project -->
     @if($projectTitle && count($projects) > 0)
+        <div id="project">
         @include('front.partials.home-projects')
+        </div>
     @endif
 
 	<!-- Our First Divider -->

@@ -31,7 +31,7 @@ class Project extends Model
     }
     public function getShortContentAttribute()
     {
-        return Str::limit(strip_tags($this->description), 100, '...');
+        return Str::limit(strip_tags($this->description), 300, '...');
     }
     public function getPlainContentAttribute()
     {

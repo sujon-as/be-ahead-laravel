@@ -34,15 +34,31 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="title">Title <span class="required">*</span></label>
+                                    <input
+                                        type="text"
+                                        name="title"
+                                        class="form-control"
+                                        id="title"
+                                        placeholder="Title"
+                                        required=""
+                                        value="{{old('title', $mission->title)}}"
+                                    >
+                                    @error('title')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <label for="description">Description <span class="required">*</span></label>
                                     <textarea
-                                        class="form-control description"
+                                        class="form-control"
                                         required=""
-                                        name="description">
-                                        {!! old('description', $mission->description) !!}
-                                    </textarea>
+                                        placeholder="Description"
+                                        name="description">{!! old('description', $mission->description) !!}</textarea>
                                     @error('description')
-                                        <span class="alert alert-danger">{{ $message }}</span>
+                                    <span class="alert alert-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>

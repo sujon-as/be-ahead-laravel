@@ -363,159 +363,25 @@
 			                <ul class="nav navbar-nav navbar-left" data-in="fadeIn">
 			                    <li class="">
 			                        <a href="{{ route('home') }}" class="{{ Request::is('/') ? 'active' : '' }}">Home</a>
-                                    {{--
-			                        <ul class="dropdown-menu">
-										<li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Multipage</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="index-multipage.html">Multipage One</a></li>
-												<li><a href="index-multipage2.html">Multipage Two</a></li>
-					                        </ul>
-					                    </li>
-										<li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Single Page</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="index-singlepage.html">Single Page One</a></li>
-												<li><a href="index-singlepage2.html">Single Page Two</a></li>
-					                        </ul>
-					                    </li>
-										<li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Boxed Style</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="index-multipage-boxed.html">Multipage One Boxed</a></li>
-												<li><a href="index-multipage2-boxed.html">Multipage Two Boxed</a></li>
-												<li><a href="index-singlepage-boxed.html">Single Page One Boxed</a></li>
-												<li><a href="index-singlepage2-boxed.html">Single Page Two Boxed</a></li>
-					                        </ul>
-					                    </li>
-										<li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">RTL Style</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="index-multipage-rtl.html">Multipage One RTL</a></li>
-												<li><a href="index-multipage2-rtl.html">Multipage Two RTL</a></li>
-												<li><a href="index-singlepage-rtl.html">Single Page One RTL</a></li>
-												<li><a href="index-singlepage2-rtl.html">Single Page Two RTL</a></li>
-					                        </ul>
-					                    </li>
-			                        </ul>
-                                    --}}
 			                    </li>
 			                    <li class="">
 			                        <a href="{{ route('about') }}" class="{{ Request::is('about') ? 'active' : '' }}">About Us</a>
-                                    {{--
-			                        <ul class="dropdown-menu">
-					                    <li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="page-about.html">About</a></li>
-												<li><a href="page-about2.html">About Two</a></li>
-												<li><a href="page-about3.html">About Three</a></li>
-					                        </ul>
-					                    </li>
-					                    <li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Causes</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="page-causes-grid.html">Causes Grid</a></li>
-												<li><a href="page-causes-list.html">Causes List</a></li>
-												<li><a href="page-causes-single.html">Causes Single</a></li>
-					                        </ul>
-					                    </li>
-					                    <li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Volunteer</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="page-team-one.html">Volunteer One</a></li>
-												<li><a href="page-team-two.html">Volunteer Two</a></li>
-												<li><a href="page-team-details.html">Volunteer Details</a></li>
-												<li><a href="page-team-registration.html">Volunteer Registration</a></li>
-					                        </ul>
-					                    </li>
-					                    <li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Booking Form</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="ulockd-booking-form.html">Form One</a></li>
-												<li><a href="ulockd-booking-form2.html">Form Two</a></li>
-												<li><a href="ulockd-booking-form3.html">Form Three</a></li>
-					                        </ul>
-					                    </li>
-					                    <li class="dropdown">
-					                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Apply Form</a>
-					                        <ul class="dropdown-menu">
-												<li><a href="ulockd-job-apply-form.html">Form One</a></li>
-												<li><a href="ulockd-job-apply-form2.html">Form Two</a></li>
-					                        </ul>
-					                    </li>
-			                        </ul>
-                                    --}}
 			                    </li>
-                                {{--
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-                                    <ul class="dropdown-menu">
-										<li class="dropdown">
-											<a href="blog-grid-one.html" class="dropdown-toggle" data-toggle="dropdown">Blog Grid </a>
-	                                        <ul class="dropdown-menu">
-												<li><a href="blog-grid-one.html">Blog Grid One </a></li>
-												<li><a href="blog-grid-two.html">Blog Grid Two </a></li>
-												<li><a href="blog-grid-three.html">Blog Grid Three </a></li>
-	                                        </ul>
-										</li>
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog Single </a>
-	                                        <ul class="dropdown-menu">
-												<li><a href="blog-signle-left-sidebar.html">Sidebar left</a></li>
-												<li><a href="blog-signle-right-sidebar.html">Sidebar Right</a></li>
-												<li><a href="blog-signle-sidebar-less.html">Sidebar Less</a></li>
-	                                        </ul>
-										</li>
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog Classic</a>
-	                                        <ul class="dropdown-menu">
-												<li><a href="blog-left-sidebar.html">Sidebar left</a></li>
-												<li><a href="blog-right-sidebar.html">Sidebar Right</a></li>
-												<li><a href="blog-sidebar-less.html">Sidebar Less</a></li>
-	                                        </ul>
-										</li>
-                                    </ul>
-                                </li>
-                                --}}
-                                <li class="">
-                                    <a
-                                        href="{{ route('appointment') }}"
-                                        class="{{ Request::is('appointment') ? 'active' : '' }}"
-                                    >
-                                        Appointment
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a
-                                        href="{{ route('donation') }}"
-                                        class="{{ Request::is('donation') ? 'active' : '' }}"
-                                    >
-                                        Donation Form
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a
-                                        href="{{ route('faq') }}"
-                                        class="{{ Request::is('faq') ? 'active' : '' }}"
-                                    >
-                                        Faq
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a
-                                        href="{{ route('gallery') }}"
-                                        class="{{ Request::is('gallery') ? 'active' : '' }}"
-                                    >
-                                        Gallery
-                                    </a>
-                                </li>
+			                    <li class="">
+			                        <a href="{{ route('home') }}#mission" class="">Mission</a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{ route('home') }}#vision" class="">Vision</a>
+			                    </li>
+			                    <li class="">
+			                        <a href="{{ route('home') }}#project" class="">Our Project</a>
+			                    </li>
                                 <li class="">
                                     <a
                                         href="{{ route('team') }}"
                                         class="{{ Request::is('team') ? 'active' : '' }}"
                                     >
-                                        Team
+                                        Our Team
                                     </a>
                                 </li>
                                 <li class="">
@@ -528,12 +394,53 @@
                                 </li>
                                 <li class="">
                                     <a
-                                        href="{{ route('contact') }}"
-                                        class="{{ Request::is('contact') ? 'active' : '' }}"
+                                        href="{{ route('donation') }}"
+                                        class="{{ Request::is('donation') ? 'active' : '' }}"
                                     >
-                                        Contact Us
+                                        Donation
                                     </a>
                                 </li>
+                                <li class="">
+                                    <a
+                                        href="{{ route('gallery') }}"
+                                        class="{{ Request::is('gallery') ? 'active' : '' }}"
+                                    >
+                                        Gallery
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{ route('blog') }}" class="{{ Request::is('blog') ? 'active' : '' }}">Blog</a>
+                                </li>
+                                <li class="">
+                                    <a href="{{ route('latest-news') }}" class="{{ Request::is('latest-news') ? 'active' : '' }}">Latest News</a>
+                                </li>
+{{--                                <li class="">--}}
+{{--                                    <a--}}
+{{--                                        href="{{ route('appointment') }}"--}}
+{{--                                        class="{{ Request::is('appointment') ? 'active' : '' }}"--}}
+{{--                                    >--}}
+{{--                                        Appointment--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+
+{{--                                <li class="">--}}
+{{--                                    <a--}}
+{{--                                        href="{{ route('faq') }}"--}}
+{{--                                        class="{{ Request::is('faq') ? 'active' : '' }}"--}}
+{{--                                    >--}}
+{{--                                        Faq--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                --}}
+{{--                                <li class="">--}}
+{{--                                    <a--}}
+{{--                                        href="{{ route('contact') }}"--}}
+{{--                                        class="{{ Request::is('contact') ? 'active' : '' }}"--}}
+{{--                                    >--}}
+{{--                                        Contact Us--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+
                                 {{--
 			                    <li class="dropdown">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>

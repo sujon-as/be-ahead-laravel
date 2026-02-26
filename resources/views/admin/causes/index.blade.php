@@ -34,6 +34,7 @@
                                 <th>Image</th>
                                 <th>Percentage</th>
                                 <th>Content</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -67,6 +68,7 @@
                     {data: 'img', name: 'img'},
                     {data: 'percentage', name: 'percentage'},
                     {data: 'content', name: 'content'},
+                    {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
@@ -104,7 +106,7 @@
                 var status_val = isDataChecked ? 'Active' : 'Inactive';
                 $.ajax({
 
-                    url: "{{ url('/feature-status-update') }}",
+                    url: "{{ url('/cause-status-update') }}",
 
                     type: "POST",
                     data:{ 'id': id, 'status': status_val },
@@ -116,6 +118,7 @@
                             $('.data-table').DataTable().ajax.reload(null, false);
                         } else {
                             toastr.error(data.message);
+                            $('.data-table').DataTable().ajax.reload(null, false);
                         }
                     },
                 });

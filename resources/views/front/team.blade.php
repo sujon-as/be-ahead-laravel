@@ -23,13 +23,14 @@
     <!-- Our Team -->
     <section class="ulockd-team">
         <div class="container">
-            <div class="row">
-                @if(count($volunteers) > 0)
-                    @foreach($volunteers as $volunteer)
+            @if(count($teams) > 0)
+                @foreach($teams->chunk(4) as $chunk)
+                    <div class="row">
+                    @foreach($chunk as $team)
                         <div class="col-xs-12 col-sm-6 col-md-3">
                             <div class="ulockd-team-member">
                                 <div class="team-thumb">
-                                    <img class="img-responsive img-whp" src="{{ asset($volunteer->image) }}" alt="{{ $volunteer->f_name }}">
+                                    <img class="img-responsive img-whp" src="{{ asset($team->img ?? '') }}" alt="{{ $team->name ?? '' }}">
 {{--                                    <div class="team-overlay">--}}
 {{--                                        <ul class="list-inline team-icon style2">--}}
 {{--                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>--}}
@@ -40,17 +41,21 @@
 {{--                                    </div>--}}
                                 </div>
                                 <div class="team-details text-left">
-                                    <h3 class="member-name">{{ $volunteer->f_name }} {{ $volunteer->l_name }}</h3>
-                                    <h5 class="member-post">- Volunteer</h5>
-                                    <p>Your Attention Is Changed The Part Of World.Give a helping hand to those who need it!</p>
+                                    <h3 class="member-name">{{ $team->name ?? '' }}</h3>
+                                    <h5 class="member-post">- {{ $team->designation ?? '' }}</h5>
+                                    <p>{{ $team->short_content }}</p>
+                                    @if(strlen($team->plain_content) > 100)
+                                        <a href="{{ route('team.details', $team->id) }}" class="read-more" style="color: green !important;">Read more</a>
+                                    @endif
 {{--                                    <button type="submit" class="btn btn-default ulockd-btn-thm2">Read More</button>--}}
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                @endif
 
             </div>
+                @endforeach
+            @endif
         </div>
     </section>
 @endsection

@@ -14,6 +14,8 @@ Route::get('/volunteer', [FrontController::class, 'volunteer'])->name('volunteer
 Route::get('/appointment', [FrontController::class, 'appointment'])->name('appointment');
 Route::get('/donation', [FrontController::class, 'donation'])->name('donation');
 Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
+Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+Route::get('/latest-news', [FrontController::class, 'news'])->name('latest-news');
 
 // Ajax routes
 Route::get('/ajax/home-gallery/all', [FrontController::class, 'homeGalleryAll']);
@@ -32,6 +34,21 @@ Route::get('/recentCause/{id}', [FrontController::class, 'recentCauseDetails'])
 
 Route::get('/project/{id}', [FrontController::class, 'projectDetails'])
     ->name('project.details');
+
+Route::get('/mission/{id}', [FrontController::class, 'missionDetails'])
+    ->name('mission.details');
+
+Route::get('/team-details/{id}', [FrontController::class, 'teamDetails'])
+    ->name('team.details');
+
+Route::get('/vision-details', [FrontController::class, 'visionDetails'])
+    ->name('vision.details');
+
+Route::get('/blog-details/{id}', [FrontController::class, 'blogDetails'])
+    ->name('blog.details');
+
+Route::get('/news-details/{id}', [FrontController::class, 'newsDetails'])
+    ->name('news.details');
 
 
 
